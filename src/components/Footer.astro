@@ -1,0 +1,134 @@
+---
+const services = [
+  { href: '/uslugi/sozdanie-sajtov', label: 'Создание сайтов' },
+  { href: '/uslugi/audit-sajtov', label: 'Аудит сайтов' },
+  { href: '/uslugi/seo-geo-prodvizhenie', label: 'SEO и GEO продвижение' },
+  { href: '/uslugi/razrabotka-logotipov', label: 'Разработка логотипов' },
+  { href: '/uslugi/podderzhka-sajtov', label: 'Поддержка сайтов' },
+  { href: '/uslugi/linkbilding', label: 'Услуги линкбилдинга' },
+];
+
+const company = [
+  { href: '/o-nas', label: 'О нас' },
+  { href: '/portfolio', label: 'Портфолио' },
+  { href: '/otzyvy', label: 'Отзывы' },
+  { href: '/kontakty', label: 'Контакты' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a href="/" class="logo">Valore<span>.</span></a>
+      <p>Digital-агентство полного цикла: сайты, продвижение в поиске и в нейросетях.</p>
+    </div>
+
+    <nav aria-label="Услуги">
+      <h3 class="footer__title">Услуги</h3>
+      <ul>
+        {services.map((s) => <li><a href={s.href}>{s.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <nav aria-label="Компания">
+      <h3 class="footer__title">Компания</h3>
+      <ul>
+        {company.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="footer__contacts">
+      <h3 class="footer__title">Контакты</h3>
+      <ul>
+        <!-- TODO: заменить плейсхолдеры на реальные ссылки -->
+        <li><a href="https://t.me/PLACEHOLDER" rel="nofollow">Telegram</a></li>
+        <li><a href="https://wa.me/PLACEHOLDER" rel="nofollow">WhatsApp</a></li>
+        <li><a href="https://vk.com/PLACEHOLDER" rel="nofollow">ВКонтакте</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>© {year} Valore Agency</span>
+    <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 56px 0 28px;
+    margin-top: 40px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .footer .logo {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .footer .logo span {
+    color: var(--lime);
+  }
+  .footer__brand p {
+    font-size: 14px;
+    max-width: 260px;
+  }
+  .footer__title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer li a {
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+  .footer li a:hover {
+    color: var(--lime);
+  }
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 13px;
+  }
+  .footer__bottom a:hover {
+    color: var(--lime);
+  }
+
+  @media (max-width: 900px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+    .footer__bottom {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>
