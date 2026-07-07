@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valoreagency.net/sitemap-index.xml
