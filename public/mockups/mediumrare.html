@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Медиум Rare — ресторан (макет)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--lime:#addf41;--dark:#1c1c1c;--ink-60:rgba(255,255,255,.6)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#141414;color:#fff}
+  h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em}
+  header{display:flex;align-items:center;justify-content:space-between;padding:26px 64px}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em}
+  .logo span{color:var(--lime)}
+  nav{display:flex;gap:32px;font-size:14px;color:var(--ink-60);text-transform:uppercase;letter-spacing:.04em}
+  .btn{border:1.5px solid var(--lime);color:var(--lime);padding:11px 22px;border-radius:2px;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .hero{padding:90px 64px;text-align:center}
+  .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--lime);margin-bottom:20px}
+  .hero h1{font-size:50px;max-width:760px;margin:0 auto 20px;line-height:1.15;font-weight:500}
+  .hero p{font-size:16px;color:var(--ink-60);max-width:480px;margin:0 auto 34px}
+  section.menu{padding:70px 64px;background:#1c1c1c}
+  .menu h2{text-align:center;font-size:28px;margin-bottom:40px}
+  .rows{max-width:700px;margin:0 auto}
+  .row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .row .name{font-size:16px}
+  .row .desc{font-size:13px;color:var(--ink-60);margin-top:4px}
+  .row .price{font-family:'Unbounded',sans-serif;font-size:16px;color:var(--lime)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Медиум<span>Rare</span></div>
+    <nav><span>Меню</span><span>Бронирование</span><span>О нас</span></nav>
+    <div class="btn">Забронировать столик</div>
+  </header>
+  <section class="hero">
+    <p class="eyebrow">Стейк-хаус</p>
+    <h1>Идеальная прожарка и атмосфера для особого вечера</h1>
+    <p>Авторские стейки, бар с редкими винами и живая музыка по пятницам.</p>
+    <div class="btn" style="display:inline-block">Смотреть меню</div>
+  </section>
+  <section class="menu">
+    <h2>Из меню</h2>
+    <div class="rows">
+      <div class="row"><div><div class="name">Рибай стейк</div><div class="desc">300 г, выдержка 21 день</div></div><div class="price">2 400 ₽</div></div>
+      <div class="row"><div><div class="name">Тартар из говядины</div><div class="desc">С трюфельным маслом</div></div><div class="price">890 ₽</div></div>
+      <div class="row"><div><div class="name">Бургер Medium Rare</div><div class="desc">Мраморная говядина, соус бри</div></div><div class="price">690 ₽</div></div>
+    </div>
+  </section>
+</body>
+</html>

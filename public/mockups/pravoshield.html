@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ПравоЩит — юридическая компания (макет)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--lime:#addf41;--dark:#1c1c1c;--ink-60:rgba(255,255,255,.65)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff}
+  h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 64px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:22px}
+  .logo span{color:var(--lime)}
+  nav{display:flex;gap:32px;font-size:15px;color:var(--ink-60)}
+  .btn{background:var(--lime);color:var(--dark);padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px}
+  .hero{padding:100px 64px;text-align:center}
+  .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);margin-bottom:16px}
+  .hero h1{font-size:46px;line-height:1.15;max-width:760px;margin:0 auto 20px}
+  .hero p{font-size:17px;color:var(--ink-60);max-width:520px;margin:0 auto 32px}
+  .stats{display:flex;justify-content:center;gap:60px;margin-top:60px}
+  .stat b{font-family:'Unbounded',sans-serif;font-size:32px;color:var(--lime);display:block}
+  .stat span{font-size:13px;color:var(--ink-60)}
+  section.practice{padding:80px 64px;background:#242424}
+  .practice h2{font-size:30px;margin-bottom:40px;text-align:center}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
+  .card{background:#2c2c2c;border-radius:20px;padding:30px;border:1px solid rgba(255,255,255,.08)}
+  .card h3{font-size:17px;margin-bottom:10px;color:var(--lime)}
+  .card p{font-size:14px;color:var(--ink-60);line-height:1.5}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Право<span>Щит</span></div>
+    <nav><span>Практика</span><span>Кейсы</span><span>Команда</span><span>Контакты</span></nav>
+    <div class="btn">Консультация</div>
+  </header>
+  <section class="hero">
+    <p class="eyebrow">Юридическая компания</p>
+    <h1>Защищаем бизнес и частные интересы в суде и переговорах</h1>
+    <p>10+ лет практики в арбитражных спорах, договорном праве и защите интеллектуальной собственности.</p>
+    <div class="btn" style="display:inline-block">Записаться на консультацию</div>
+    <div class="stats">
+      <div class="stat"><b>240+</b><span>выигранных дел</span></div>
+      <div class="stat"><b>92%</b><span>дел в пользу клиента</span></div>
+      <div class="stat"><b>10 лет</b><span>практики</span></div>
+    </div>
+  </section>
+  <section class="practice">
+    <h2>Направления практики</h2>
+    <div class="cards">
+      <div class="card"><h3>Арбитражные споры</h3><p>Представляем интересы бизнеса в спорах любой сложности.</p></div>
+      <div class="card"><h3>Договорное право</h3><p>Составляем и проверяем договоры, снижаем юридические риски.</p></div>
+      <div class="card"><h3>Защита ИС</h3><p>Регистрация и защита товарных знаков и авторских прав.</p></div>
+    </div>
+  </section>
+</body>
+</html>

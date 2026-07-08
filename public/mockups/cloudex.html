@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Клаудex — IT-стартап (макет)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--pink:#ffa9e9;--lime:#addf41;--dark:#1c1c1c;--ink-60:rgba(255,255,255,.65)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff}
+  h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 64px}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:22px}
+  .logo span{color:var(--pink)}
+  nav{display:flex;gap:32px;font-size:15px;color:var(--ink-60)}
+  .btn{background:var(--pink);color:var(--dark);padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px}
+  .hero{padding:90px 64px;text-align:center;background:radial-gradient(circle at 50% 0%, rgba(255,169,233,.15), transparent 60%)}
+  .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin-bottom:16px}
+  .hero h1{font-size:48px;max-width:760px;margin:0 auto 20px;line-height:1.15}
+  .hero p{font-size:17px;color:var(--ink-60);max-width:520px;margin:0 auto 32px}
+  section.features{padding:80px 64px;background:#242424}
+  .features h2{font-size:28px;text-align:center;margin-bottom:40px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:0 auto}
+  .card{background:#2b2b2b;border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,.08)}
+  .card .ic{font-size:28px;margin-bottom:14px}
+  .card h3{font-size:16px;margin-bottom:10px}
+  .card p{font-size:13.5px;color:var(--ink-60);line-height:1.5}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Клауд<span>ex</span></div>
+    <nav><span>Продукт</span><span>Тарифы</span><span>API</span><span>Блог</span></nav>
+    <div class="btn">Начать бесплатно</div>
+  </header>
+  <section class="hero">
+    <p class="eyebrow">SaaS-платформа для команд</p>
+    <h1>Управляйте проектами и командой в одном облаке</h1>
+    <p>Задачи, документы и аналитика в одном интерфейсе — без переключения между десятком сервисов.</p>
+    <div class="btn" style="display:inline-block">Попробовать 14 дней бесплатно</div>
+  </section>
+  <section class="features">
+    <h2>Что внутри</h2>
+    <div class="cards">
+      <div class="card"><div class="ic">📋</div><h3>Управление задачами</h3><p>Канбан, спринты и трекинг времени в одном месте.</p></div>
+      <div class="card"><div class="ic">🔗</div><h3>Интеграции</h3><p>Подключение к 30+ сервисам через готовые коннекторы.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>Аналитика команды</h3><p>Отчёты по загрузке и эффективности в реальном времени.</p></div>
+    </div>
+  </section>
+</body>
+</html>

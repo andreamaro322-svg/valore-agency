@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ТехПоставка — оптовая компания (макет)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--lime:#addf41;--dark:#1c1c1c;--ink-60:rgba(11,18,21,.6)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+  h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;border-bottom:1px solid #eee}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:20px}
+  .logo span{color:var(--dark);background:var(--lime);padding:2px 6px;border-radius:6px}
+  .search{flex:1;max-width:420px;margin:0 40px;background:#f2f2ef;border-radius:10px;padding:10px 16px;font-size:14px;color:var(--ink-60)}
+  .btn{background:var(--dark);color:#fff;padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px}
+  .hero{padding:20px 64px;display:flex;gap:0}
+  .cat{width:220px;background:#f7f7f4;border-radius:16px;padding:20px;font-size:14px}
+  .cat div{padding:10px 0;border-bottom:1px solid #eaeae6;color:var(--ink-60)}
+  .banner{flex:1;margin-left:20px;background:var(--dark);border-radius:16px;padding:40px;color:#fff;display:flex;flex-direction:column;justify-content:center}
+  .banner .eyebrow{color:var(--lime);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:12px}
+  .banner h1{font-size:32px;margin-bottom:10px}
+  .banner p{color:rgba(255,255,255,.65);font-size:15px;max-width:400px}
+  section.catalog{padding:50px 64px}
+  .catalog h2{font-size:26px;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .item{border:1px solid #eee;border-radius:14px;padding:18px}
+  .item .cover{height:90px;background:#f2f2ef;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:12px}
+  .item h3{font-size:14px;margin-bottom:6px}
+  .item .price{font-family:'Unbounded',sans-serif;font-size:15px}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Тех<span>Поставка</span></div>
+    <div class="search">Поиск по каталогу: крепёж, инструмент, спецодежда...</div>
+    <div class="btn">Заявка на закупку</div>
+  </header>
+  <section class="hero">
+    <div class="cat">
+      <div>Крепёж и метизы</div>
+      <div>Инструмент</div>
+      <div>Спецодежда и СИЗ</div>
+      <div>Электрика</div>
+      <div>Сантехника</div>
+    </div>
+    <div class="banner">
+      <p class="eyebrow">Оптовые поставки B2B</p>
+      <h1>Промышленные товары оптом по всей России</h1>
+      <p>Складская программа 12 000+ позиций, отгрузка day-in-day-out и персональный менеджер.</p>
+    </div>
+  </section>
+  <section class="catalog">
+    <h2>Популярные категории</h2>
+    <div class="grid">
+      <div class="item"><div class="cover">🔩</div><h3>Крепёж оптом</h3><div class="price">от 0,90 ₽/шт</div></div>
+      <div class="item"><div class="cover">🧰</div><h3>Ручной инструмент</h3><div class="price">от 350 ₽</div></div>
+      <div class="item"><div class="cover">🦺</div><h3>Спецодежда</h3><div class="price">от 1 200 ₽</div></div>
+      <div class="item"><div class="cover">🔌</div><h3>Электрика и кабель</h3><div class="price">от 45 ₽/м</div></div>
+    </div>
+  </section>
+</body>
+</html>

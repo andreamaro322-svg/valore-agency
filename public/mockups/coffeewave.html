@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Кофе Волна — сеть кофеен (макет)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--lime:#addf41;--dark:#1c1c1c;--cream:#fbf6ea;--ink-60:rgba(11,18,21,.6)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark)}
+  h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 64px}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:22px}
+  .logo span{color:#8a6a3a}
+  nav{display:flex;gap:32px;font-size:15px;color:var(--ink-60)}
+  .btn{background:var(--dark);color:#fff;padding:12px 24px;border-radius:30px;font-weight:600;font-size:14px}
+  .hero{padding:80px 64px;text-align:center}
+  .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8a6a3a;margin-bottom:16px}
+  .hero h1{font-size:46px;max-width:700px;margin:0 auto 20px;line-height:1.15}
+  .hero p{font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto 32px}
+  .map{margin-top:20px;font-size:13px;color:var(--ink-60)}
+  section.menu{padding:70px 64px;background:#fff}
+  .menu h2{font-size:30px;margin-bottom:36px;text-align:center}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1000px;margin:0 auto}
+  .card{background:var(--cream);border-radius:20px;padding:24px;text-align:center}
+  .card .ic{font-size:36px;margin-bottom:10px}
+  .card h3{font-size:15px;margin-bottom:6px}
+  .card .price{font-family:'Unbounded',sans-serif;font-size:16px;color:#8a6a3a}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Кофе<span>Волна</span></div>
+    <nav><span>Меню</span><span>Точки на карте</span><span>О нас</span><span>Франшиза</span></nav>
+    <div class="btn">Найти кофейню</div>
+  </header>
+  <section class="hero">
+    <p class="eyebrow">Сеть кофеен · 14 точек по городу</p>
+    <h1>Кофе, который поднимает настроение с первого глотка</h1>
+    <p>Своя обжарка, авторские сиропы и уютные пространства для работы и встреч.</p>
+    <div class="btn" style="display:inline-block">Посмотреть меню</div>
+    <div class="map">📍 14 кофеен в городе · открыты с 7:00 до 22:00</div>
+  </section>
+  <section class="menu">
+    <h2>Популярное в меню</h2>
+    <div class="cards">
+      <div class="card"><div class="ic">☕</div><h3>Флэт уайт</h3><div class="price">220 ₽</div></div>
+      <div class="card"><div class="ic">🥐</div><h3>Круассан</h3><div class="price">180 ₽</div></div>
+      <div class="card"><div class="ic">🍵</div><h3>Матча латте</h3><div class="price">280 ₽</div></div>
+      <div class="card"><div class="ic">🧊</div><h3>Раф со льдом</h3><div class="price">250 ₽</div></div>
+    </div>
+  </section>
+</body>
+</html>
