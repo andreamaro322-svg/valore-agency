@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Аудит сайта — поиск ошибок и SEO-рекомендации от 5 000 ₽ | Valore Agency';
+const description =
+  'Проводим технический и SEO-аудит сайта: находим ошибки, показываем точки роста и даём пошаговый план исправлений. Цена от 5 000 ₽, отчёт за 3–5 дней.';
+const canonical = 'https://valoreagency.net/uslugi/audit-sajtov';
+
+const findings = [
+  { icon: '🐢', title: 'Медленная загрузка', text: 'Проверяем скорость сайта на мобильных и десктопе, находим, что именно её тормозит.' },
+  { icon: '🔗', title: 'Битые ссылки и 404', text: 'Находим неработающие ссылки и страницы, которые теряют трафик и портят репутацию у поисковиков.' },
+  { icon: '🧩', title: 'Отсутствие микроразметки', text: 'Проверяем schema.org — без неё сайт хуже показывается в поиске и не попадает в ответы нейросетей.' },
+  { icon: '📑', title: 'Дубли мета-тегов и контента', text: 'Ищем одинаковые title, description и дублирующиеся страницы, которые размывают позиции.' },
+  { icon: '📱', title: 'Проблемы адаптивной вёрстки', text: 'Проверяем корректность отображения на телефонах и планшетах — это влияет на позиции в поиске.' },
+  { icon: '🗂️', title: 'Ошибки индексации', text: 'Смотрим robots.txt, sitemap.xml и настройки в Яндекс.Вебмастере и Google Search Console.' },
+];
+
+const pricing = [
+  {
+    name: 'Аудит сайта',
+    price: 'от 5 000 ₽',
+    text: 'Полная проверка сайта на технические и SEO-ошибки с готовым планом исправлений.',
+    features: [
+      'Технический аудит (скорость, вёрстка, ошибки индексации)',
+      'SEO-аудит (мета-теги, структура, микроразметка)',
+      'Проверка мобильной версии',
+      'Приоритизированный отчёт с рекомендациями',
+      'Срок: 3–5 рабочих дней',
+    ],
+  },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит аудит сайта?',
+    a: 'Базовый аудит стоит от 5 000 ₽. Итоговая цена зависит от количества страниц и глубины проверки — например, аудит интернет-магазина с каталогом стоит дороже, чем аудит лендинга.',
+  },
+  {
+    q: 'Что входит в аудит сайта?',
+    a: 'Мы проверяем техническую часть (скорость загрузки, ошибки индексации, адаптивность, битые ссылки) и SEO-часть (мета-теги, заголовки, микроразметку schema.org, качество контента). По итогам даём отчёт с приоритетом исправлений.',
+  },
+  {
+    q: 'Вы сами исправляете найденные ошибки?',
+    a: 'В рамках аудита мы даём отчёт и рекомендации. Исправление ошибок можно заказать отдельно или оформить как услугу поддержки сайта — тогда доработки будем вносить мы.',
+  },
+  {
+    q: 'Сколько времени занимает аудит?',
+    a: 'Обычно от 3 до 5 рабочих дней в зависимости от размера сайта и количества страниц.',
+  },
+  {
+    q: 'В каком формате я получу результат?',
+    a: 'Присылаем структурированный отчёт: список найденных проблем, их влияние на позиции и трафик, а также конкретные шаги по исправлению — приоритет от критичных к второстепенным.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Аудит сайта',
+  name: 'Аудит сайтов',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: '5000',
+    priceCurrency: 'RUB',
+    description: 'Технический и SEO-аудит сайта с отчётом и рекомендациями',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'Аудит сайтов' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — Аудит сайтов</p>
+      <h1>Находим, что мешает сайту попадать в топ и получать заявки</h1>
+      <p class="hero__lead">
+        Проверяем сайт на технические и SEO-ошибки, показываем точки роста и даём понятный
+        план исправлений — без воды, с конкретными приоритетами.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Заказать аудит</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть цену</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 5 000 ₽</strong>стоимость</div>
+        <div><strong>3–5 дней</strong>срок проверки</div>
+        <div><strong>Отчёт + план</strong>что получаете на руки</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Что мы проверяем на аудите</h2>
+      <p>
+        <strong>Аудит сайта</strong> — это диагностика, которая показывает, почему сайт плохо
+        ранжируется, медленно грузится или теряет заявки. Мы проверяем сайт по двум
+        направлениям: техническому и SEO. Техническая часть — это скорость загрузки,
+        корректность вёрстки, ошибки индексации, битые ссылки и настройки безопасности.
+        SEO-часть — это структура заголовков, мета-теги, качество контента, внутренняя
+        перелинковка и наличие микроразметки schema.org.
+      </p>
+      <p>
+        По итогам проверки вы получаете не просто список проблем, а приоритизированный план:
+        что нужно исправить в первую очередь, чтобы быстрее увидеть результат, а что можно
+        отложить. Это экономит бюджет — вы не тратите деньги на доработки, которые не влияют
+        на позиции и трафик.
+      </p>
+      <h3>Кому подходит аудит</h3>
+      <ul>
+        <li>Сайт есть, но не приносит заявок или трафика</li>
+        <li>Позиции в поиске упали или не растут</li>
+        <li>Сайт делал другой подрядчик, и нужна независимая оценка качества</li>
+        <li>Планируете редизайн и хотите понять, что стоит сохранить</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="chto-nahodim">
+    <div class="container">
+      <p class="eyebrow">— Что чаще всего находим</p>
+      <h2 class="section-title">Типичные ошибки на сайтах</h2>
+      <div class="services">
+        {
+          findings.map((f) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{f.icon}</span>
+              <h3 class="service__title">{f.title}</h3>
+              <p class="service__text">{f.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Стоимость</p>
+      <h2 class="section-title">Цена аудита сайта</h2>
+      <div class="pricing pricing--2col" style="max-width:560px">
+        {
+          pricing.map((p) => (
+            <div class="price-card price-card--accent">
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Заказать аудит</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Итоговая цена зависит от количества страниц и типа сайта (лендинг, каталог,
+        интернет-магазин). Точную стоимость называем после короткой консультации.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы об аудите</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

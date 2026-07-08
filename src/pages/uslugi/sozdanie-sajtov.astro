@@ -1,0 +1,232 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Создание сайтов под ключ — лендинги, визитки, корпоративные сайты | Valore Agency';
+const description =
+  'Создаём лендинги, сайты-визитки и корпоративные сайты под ключ. Цены от 35 000 ₽, сроки от 3 дней, готовая SEO-структура и адаптивная вёрстка.';
+const canonical = 'https://valoreagency.net/uslugi/sozdanie-sajtov';
+
+const pricing = [
+  {
+    name: 'Landing Page',
+    price: 'от 35 000 ₽',
+    text: 'Одностраничный сайт с одной целью — собрать заявку или продать один продукт.',
+    features: ['1 страница, до 8 экранов', 'Форма заявки и аналитика', 'Адаптивная вёрстка', 'Срок: от 3 дней'],
+  },
+  {
+    name: 'Сайт-визитка',
+    price: 'от 37 000 ₽',
+    text: 'Компактный сайт, чтобы презентовать компанию, специалиста или небольшой бизнес.',
+    features: ['До 5 страниц', 'Раздел услуг и портфолио', 'Форма обратной связи', 'Срок: от 5 дней'],
+  },
+  {
+    name: 'Корпоративный сайт',
+    price: 'от 45 000 ₽',
+    text: 'Многостраничный сайт для компаний с услугами, каталогом и разделами о команде.',
+    features: ['До 10 страниц', 'Каталог услуг/товаров', 'Блог и SEO-структура', 'Срок: от 10 дней'],
+    accent: true,
+  },
+  {
+    name: 'Сайт компании',
+    price: 'от 55 000 ₽',
+    text: 'Крупный сайт для сложной структуры бизнеса: филиалы, каталог, личный кабинет.',
+    features: ['От 10 страниц', 'Сложная структура разделов', 'Интеграции и формы', 'Срок: от 2–3 недель'],
+  },
+];
+
+const examples = [
+  { icon: '🦷', title: 'Лендинг для стоматологии', text: 'Одностраничник с записью на приём, ценами на услуги и отзывами.' },
+  { icon: '⚖️', title: 'Сайт-визитка для юриста', text: 'Компактный сайт с описанием практики, кейсами и формой консультации.' },
+  { icon: '🏗️', title: 'Корпоративный сайт для стройкомпании', text: 'Каталог объектов, портфолио построенных домов, калькулятор сметы.' },
+  { icon: '🍽️', title: 'Сайт для ресторана', text: 'Меню, онлайн-бронирование столиков и интеграция с картами.' },
+  { icon: '📦', title: 'Сайт-каталог для опта', text: 'Каталог товаров с фильтрами, прайс-листом и заявкой на закупку.' },
+  { icon: '🏢', title: 'Сайт компании от 10 страниц', text: 'Филиалы, вакансии, новости, личный кабинет для клиентов и партнёров.' },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит создание сайта?',
+    a: 'Landing Page — от 35 000 ₽, сайт-визитка — от 37 000 ₽, корпоративный сайт до 10 страниц — от 45 000 ₽, сайт компании от 10 страниц — от 55 000 ₽. Точную цену называем после консультации, когда понимаем объём и функциональность.',
+  },
+  {
+    q: 'Какие сроки разработки сайта?',
+    a: 'Landing Page — от 3 до 7 дней, сайт-визитка — от 5 до 10 дней, корпоративный сайт — от 2 недель, крупный сайт компании — от 2–3 недель. Точные сроки фиксируем в договоре.',
+  },
+  {
+    q: 'На какой технологии делаете сайты?',
+    a: 'Мы используем современный стек (в том числе Astro) для быстрой загрузки и хорошей индексации в поиске. Сайт изначально проектируется с учётом SEO и GEO-продвижения.',
+  },
+  {
+    q: 'Сайт будет адаптирован под мобильные устройства?',
+    a: 'Да, все сайты адаптивные и корректно отображаются на телефонах, планшетах и десктопах — это обязательное условие для SEO-продвижения.',
+  },
+  {
+    q: 'Можно ли заказать только дизайн или только вёрстку?',
+    a: 'Да, можем взять в работу отдельный этап — дизайн, вёрстку или интеграцию с CMS. Обсуждается индивидуально на консультации.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Разработка сайтов',
+  name: 'Создание сайтов под ключ',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: p.price.replace(/[^\d]/g, ''),
+    priceCurrency: 'RUB',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'Создание сайтов' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — Создание сайтов</p>
+      <h1>Сайты под ключ: от лендинга до крупного корпоративного портала</h1>
+      <p class="hero__lead">
+        Проектируем, разрабатываем и запускаем сайты, готовые сразу продвигаться в поиске
+        и в нейросетях. Один подрядчик — от макета до публикации.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Обсудить проект</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть цены</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 35 000 ₽</strong>стоимость</div>
+        <div><strong>от 3 дней</strong>срок разработки</div>
+        <div><strong>4 формата</strong>лендинг, визитка, корпоративный, сайт компании</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Как мы создаём сайты</h2>
+      <p>
+        <strong>Valore Agency</strong> разрабатывает сайты под ключ — от простого лендинга до
+        многостраничного корпоративного портала. Каждый проект начинается с брифа: мы уточняем
+        цель сайта, целевую аудиторию и ключевые запросы, по которым вас должны находить в
+        Яндексе и Google. Это позволяет сразу заложить правильную структуру страниц, а не
+        переделывать её после запуска.
+      </p>
+      <p>
+        Дизайн разрабатывается индивидуально под ваш бренд — используем брендовые цвета,
+        шрифты и тон коммуникации. Вёрстка адаптивная: сайт одинаково хорошо выглядит на
+        телефоне, планшете и десктопе. Мы используем современный технологический стек,
+        который обеспечивает высокую скорость загрузки — это один из главных факторов
+        ранжирования в поисковых системах.
+      </p>
+      <h3>SEO и GEO с первого дня</h3>
+      <p>
+        Уже на этапе разработки мы закладываем корректную семантическую структуру (заголовки
+        H1–H3, мета-теги, микроразметку schema.org), настраиваем sitemap и robots.txt.
+        Это ускоряет индексацию и делает сайт понятным не только поисковым системам, но и
+        нейросетям вроде ChatGPT и Алисы — то есть готовит его к GEO-продвижению без
+        дополнительных доработок.
+      </p>
+      <h3>Что входит в разработку</h3>
+      <ul>
+        <li>Прототип и дизайн страниц под ваш бренд</li>
+        <li>Адаптивная вёрстка и оптимизация скорости загрузки</li>
+        <li>SEO-структура, мета-теги и микроразметка schema.org</li>
+        <li>Подключение форм заявок, аналитики и карт</li>
+        <li>Публикация на хостинге и передача доступов</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="primery">
+    <div class="container">
+      <p class="eyebrow">— Что умеем делать</p>
+      <h2 class="section-title">Примеры сайтов, которые мы можем создать</h2>
+      <div class="services">
+        {
+          examples.map((e) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{e.icon}</span>
+              <h3 class="service__title">{e.title}</h3>
+              <p class="service__text">{e.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Прозрачные цены</p>
+      <h2 class="section-title">Стоимость создания сайта</h2>
+      <div class="pricing pricing--4col">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">Популярный выбор</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Заказать</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Итоговая стоимость зависит от количества страниц, дизайна и интеграций. Точный расчёт
+        делаем бесплатно после консультации.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о создании сайтов</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

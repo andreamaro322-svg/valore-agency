@@ -1,0 +1,203 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Линкбилдинг — наращивание ссылочной массы от 15 000 ₽/мес | Valore Agency';
+const description =
+  'Наращиваем качественную ссылочную массу сайта: белые методы, тематические площадки, крауд-маркетинг. Растим траст домена и позиции в поиске.';
+const canonical = 'https://valoreagency.net/uslugi/linkbilding';
+
+const includes = [
+  { icon: '📰', title: 'Гостевые публикации', text: 'Размещаем статьи со ссылкой на тематических площадках и в блогах.' },
+  { icon: '🗂️', title: 'Регистрация в каталогах', text: 'Добавляем сайт в качественные бизнес-каталоги и агрегаторы.' },
+  { icon: '💬', title: 'Крауд-маркетинг', text: 'Оставляем полезные упоминания с ссылкой на форумах и в тематических обсуждениях.' },
+  { icon: '🤝', title: 'Обмен и партнёрские ссылки', text: 'Договариваемся о размещениях с релевантными и доверенными сайтами.' },
+  { icon: '🛡️', title: 'Только белые методы', text: 'Не используем спамные биржи и накрутку — это бережёт сайт от санкций поисковиков.' },
+  { icon: '📊', title: 'Мониторинг ссылочного профиля', text: 'Следим за качеством и количеством ссылок, вовремя убираем токсичные.' },
+];
+
+const pricing = [
+  {
+    name: 'Старт',
+    price: 'от 15 000 ₽/мес',
+    text: 'Наращивание ссылочной массы для сайтов в невысококонкурентных нишах.',
+    features: ['Гостевые публикации и каталоги', 'Крауд-маркетинг', 'Отчёт о размещениях', 'Мониторинг ссылочного профиля'],
+  },
+  {
+    name: 'Рост',
+    price: 'от 30 000 ₽/мес',
+    text: 'Более активное наращивание ссылок для конкурентных ниш и городов-миллионников.',
+    features: ['Всё из тарифа «Старт»', 'Больше размещений в месяц', 'Работа с более сильными площадками', 'Ежемесячный анализ конкурентов'],
+    accent: true,
+  },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит линкбилдинг?',
+    a: 'Базовый тариф — от 15 000 ₽ в месяц, для конкурентных ниш — от 30 000 ₽ в месяц. Стоимость зависит от количества и качества нужных размещений.',
+  },
+  {
+    q: 'Это безопасно для сайта? Не будет ли санкций от поисковиков?',
+    a: 'Мы используем только белые методы — гостевые публикации на тематических площадках, качественные каталоги и естественный крауд-маркетинг. Спамные биржи ссылок и накрутку не используем, поэтому риск санкций минимален.',
+  },
+  {
+    q: 'Что такое линкбилдинг и зачем он нужен?',
+    a: 'Линкбилдинг — это наращивание ссылок на ваш сайт с других ресурсов. Поисковые системы учитывают количество и качество таких ссылок при ранжировании — чем выше траст домена, тем проще занять высокие позиции по конкурентным запросам.',
+  },
+  {
+    q: 'Через сколько будет заметен результат?',
+    a: 'Рост траста домена — процесс постепенный, первые изменения обычно заметны через 2–3 месяца регулярной работы.',
+  },
+  {
+    q: 'Можно ли подключить линкбилдинг отдельно от SEO?',
+    a: 'Да, но для максимального эффекта рекомендуем совмещать с услугой SEO-продвижения — тогда рост позиций идёт быстрее.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Линкбилдинг',
+  name: 'Линкбилдинг',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: p.price.replace(/[^\d]/g, ''),
+    priceCurrency: 'RUB',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'Линкбилдинг' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — Линкбилдинг</p>
+      <h1>Качественная ссылочная масса для роста позиций в поиске</h1>
+      <p class="hero__lead">
+        Наращиваем траст домена белыми методами — без спамных бирж и накрутки, только
+        тематические площадки и естественные упоминания.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Обсудить проект</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть тарифы</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 15 000 ₽</strong>в месяц</div>
+        <div><strong>Белые методы</strong>без риска санкций</div>
+        <div><strong>Отчётность</strong>ежемесячно</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Зачем сайту ссылочная масса</h2>
+      <p>
+        Поисковые системы оценивают не только сам сайт, но и то, что о нём думают другие
+        ресурсы в интернете. Ссылки с авторитетных тематических площадок повышают траст
+        домена — и при прочих равных сайт с качественной ссылочной массой обходит
+        конкурентов в выдаче по сложным коммерческим запросам.
+      </p>
+      <p>
+        Мы работаем только белыми методами: размещаем статьи на релевантных площадках,
+        договариваемся о партнёрских ссылках, добавляем сайт в проверенные каталоги и
+        аккуратно используем крауд-маркетинг. Спамные ссылочные биржи и массовую
+        автоматическую генерацию ссылок не используем — это может привести к санкциям
+        и просадке позиций.
+      </p>
+    </div>
+  </section>
+
+  <section id="chto-vhodit">
+    <div class="container">
+      <p class="eyebrow">— Что входит</p>
+      <h2 class="section-title">Как мы наращиваем ссылки</h2>
+      <div class="services">
+        {
+          includes.map((i) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Тарифы</p>
+      <h2 class="section-title">Стоимость линкбилдинга</h2>
+      <div class="pricing pricing--2col">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">Для конкурентных ниш</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Обсудить проект</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Точный план размещений и бюджет рассчитываем индивидуально после анализа ниши
+        и конкурентов.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о линкбилдинге</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

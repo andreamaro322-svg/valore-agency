@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'SEO и GEO продвижение сайта — от 50 000 ₽/мес | Valore Agency';
+const description =
+  'Продвигаем сайты в топ Яндекса и Google (SEO) и в ответах нейросетей ChatGPT, Алиса, Gemini (GEO). Что входит в услугу, цена от 50 000 ₽ в месяц.';
+const canonical = 'https://valoreagency.net/uslugi/seo-geo-prodvizhenie';
+
+const seoIncludes = [
+  { icon: '🔎', title: 'Сбор семантики', text: 'Подбираем ключевые запросы, по которым вас ищет целевая аудитория.' },
+  { icon: '⚙️', title: 'Техническая оптимизация', text: 'Скорость загрузки, индексация, sitemap, корректная микроразметка.' },
+  { icon: '📝', title: 'Оптимизация контента', text: 'Дорабатываем тексты, заголовки и мета-теги под целевые запросы.' },
+  { icon: '🔗', title: 'Внутренняя перелинковка', text: 'Выстраиваем структуру ссылок между страницами для роста позиций.' },
+];
+
+const geoIncludes = [
+  { icon: '🤖', title: 'Структурирование под ИИ', text: 'Оформляем контент в формате прямых ответов, понятных ChatGPT, Алисе, Gemini.' },
+  { icon: '🧩', title: 'Микроразметка schema.org', text: 'FAQPage, Organization, Service — данные, которые считывают нейросети.' },
+  { icon: '📄', title: 'llms.txt и структура данных', text: 'Готовим сайт к индексации ИИ-краулерами по новым стандартам GEO.' },
+  { icon: '📊', title: 'Мониторинг упоминаний в ИИ', text: 'Проверяем, рекомендуют ли нейросети вашу компанию по профильным запросам.' },
+];
+
+const pricing = [
+  {
+    name: 'SEO + GEO продвижение',
+    price: 'от 50 000 ₽ / мес',
+    text: 'Комплексное продвижение сайта в классическом поиске и в нейросетях.',
+    features: [
+      'Сбор семантики и стратегия продвижения',
+      'Техническая и SEO-оптимизация сайта',
+      'Оптимизация контента под запросы и под ИИ',
+      'Микроразметка schema.org и llms.txt',
+      'Ежемесячный отчёт по позициям и видимости в ИИ',
+    ],
+  },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит SEO и GEO продвижение?',
+    a: 'Продвижение стоит от 50 000 ₽ в месяц. Итоговая стоимость зависит от конкурентности ниши, региона и объёма работ по сайту.',
+  },
+  {
+    q: 'Что такое GEO-продвижение и чем оно отличается от SEO?',
+    a: 'SEO выводит сайт в топ обычной поисковой выдачи Яндекса и Google. GEO (Generative Engine Optimization) делает так, чтобы вас находили, понимали и рекомендовали нейросети — ChatGPT, Алиса AI, Gemini. Методы разные, но дополняют друг друга: качественный контент и микроразметка одинаково важны и для поиска, и для ИИ.',
+  },
+  {
+    q: 'Что входит в ежемесячную услугу?',
+    a: 'Сбор и актуализация семантики, техническая и SEO-оптимизация, доработка контента, работа с микроразметкой, подготовка сайта к GEO (llms.txt, структурированные данные) и ежемесячный отчёт по позициям и видимости в нейросетях.',
+  },
+  {
+    q: 'Через сколько появятся первые результаты?',
+    a: 'Первые изменения в индексации и мелких позициях обычно заметны через 4–6 недель, устойчивый рост трафика — через 3–4 месяца. Сроки зависят от возраста сайта и конкурентности ниши.',
+  },
+  {
+    q: 'Нужен ли линкбилдинг вместе с SEO?',
+    a: 'Для конкурентных ниш — да, это ускоряет рост позиций за счёт роста траста домена. Услугу линкбилдинга можно подключить отдельно.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'SEO и GEO продвижение',
+  name: 'SEO и GEO продвижение сайтов',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: '50000',
+    priceCurrency: 'RUB',
+    description: 'Ежемесячное SEO и GEO продвижение сайта',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'SEO / GEO продвижение' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — SEO и GEO продвижение</p>
+      <h1>Топ Яндекса и Google плюс рекомендации от нейросетей</h1>
+      <p class="hero__lead">
+        Продвигаем сайт в классическом поиске и делаем его заметным для ChatGPT, Алисы AI
+        и Gemini — комплексно, с ежемесячной отчётностью.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Обсудить продвижение</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть цену</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 50 000 ₽</strong>в месяц</div>
+        <div><strong>SEO + GEO</strong>два направления в одной услуге</div>
+        <div><strong>Отчёт</strong>ежемесячно</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">SEO и GEO — два канала, одна команда</h2>
+      <p>
+        <strong>SEO</strong> — это классическое продвижение в поисковых системах: чем лучше
+        сайт отвечает на запрос пользователя технически и по содержанию, тем выше он в выдаче
+        Яндекса и Google. <strong>GEO (Generative Engine Optimization)</strong> — новое
+        направление: продвижение в ответах нейросетей. Всё больше людей вместо поиска
+        спрашивают ChatGPT, Алису или Gemini «кто делает сайты» или «где заказать логотип» —
+        и получают ответ со ссылкой на конкретные компании. Наша задача — сделать так, чтобы
+        в этом ответе упоминали вас.
+      </p>
+      <p>
+        Мы ведём оба направления одной командой: собираем семантику, дорабатываем техническую
+        часть сайта, оптимизируем контент под запросы пользователей и одновременно
+        структурируем его так, чтобы нейросети могли легко извлекать факты — цены, услуги,
+        ответы на частые вопросы. Дополняем это микроразметкой schema.org и файлом llms.txt,
+        которые прямо говорят краулерам нейросетей, о чём ваш сайт.
+      </p>
+    </div>
+  </section>
+
+  <section id="chto-vhodit">
+    <div class="container">
+      <p class="eyebrow">— Что входит: SEO</p>
+      <h2 class="section-title">Классическое поисковое продвижение</h2>
+      <div class="services services--2col">
+        {
+          seoIncludes.map((i) => (
+            <div class="service" style="background:var(--lime-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="geo">
+    <div class="container">
+      <p class="eyebrow">— Что входит: GEO</p>
+      <h2 class="section-title">Продвижение в нейросетях</h2>
+      <div class="services services--2col">
+        {
+          geoIncludes.map((i) => (
+            <div class="service" style="background:var(--pink-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Стоимость</p>
+      <h2 class="section-title">Цена SEO и GEO продвижения</h2>
+      <div class="pricing pricing--2col" style="max-width:560px">
+        {
+          pricing.map((p) => (
+            <div class="price-card price-card--accent">
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Обсудить проект</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Итоговая стоимость зависит от конкурентности ниши, региона и текущего состояния сайта.
+        Рассчитываем индивидуально после бесплатного разбора.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о SEO и GEO</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

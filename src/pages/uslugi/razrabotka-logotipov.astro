@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Разработка логотипа — от 3 000 ₽ | Дизайн логотипов | Valore Agency';
+const description =
+  'Разрабатываем логотипы для бизнеса любой ниши: кофейни, IT-компании, салоны красоты, стройкомпании. Цена от 3 000 ₽, несколько концепций на выбор.';
+const canonical = 'https://valoreagency.net/uslugi/razrabotka-logotipov';
+
+const examples = [
+  { letter: 'К', bg: 'var(--lime)', fg: 'var(--dark)', niche: 'Кофейня и кафе', title: 'Логотип для сети кофеен', text: 'Тёплый, дружелюбный стиль с монограммой и фирменным паттерном для упаковки.' },
+  { letter: 'IT', bg: 'var(--pink)', fg: 'var(--dark)', niche: 'IT и стартапы', title: 'Логотип для IT-компании', text: 'Минималистичный знак, который хорошо смотрится в интерфейсах и на favicon.' },
+  { letter: 'Б', bg: 'var(--dark)', fg: '#fff', niche: 'Салоны красоты', title: 'Логотип для салона красоты', text: 'Изящная типографика и знак, отражающие премиальность услуг.' },
+  { letter: 'С', bg: 'var(--lime)', fg: 'var(--dark)', niche: 'Строительство', title: 'Логотип для строительной компании', text: 'Строгий, надёжный стиль — показывает стабильность и масштаб компании.' },
+  { letter: 'Ф', bg: 'var(--pink)', fg: 'var(--dark)', niche: 'Фитнес и спорт', title: 'Логотип для фитнес-клуба', text: 'Динамичный знак с акцентом на движение и энергию бренда.' },
+  { letter: 'Ю', bg: 'var(--dark)', fg: '#fff', niche: 'Юридические услуги', title: 'Логотип для юридической компании', text: 'Классическая, сдержанная подача — доверие и экспертность с первого взгляда.' },
+];
+
+const pricing = [
+  {
+    name: 'Логотип',
+    price: 'от 3 000 ₽',
+    text: 'Разработка знака и логотипа для вашего бренда.',
+    features: ['2–3 концепции на выбор', 'До 2 итераций правок', 'Файлы в PNG, SVG, PDF', 'Срок: 3–5 дней'],
+  },
+  {
+    name: 'Логотип + фирменный стиль',
+    price: 'от 8 000 ₽',
+    text: 'Логотип плюс базовый гайдлайн: цвета, шрифты, визитка, оформление соцсетей.',
+    features: ['Всё из тарифа «Логотип»', 'Цветовая палитра и шрифтовая пара', 'Мини-гайдлайн по использованию', 'Макет визитки и аватара соцсетей'],
+    accent: true,
+  },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит разработка логотипа?',
+    a: 'Логотип стоит от 3 000 ₽. Пакет с базовым фирменным стилем (цвета, шрифты, макеты для визитки и соцсетей) — от 8 000 ₽.',
+  },
+  {
+    q: 'Сколько вариантов логотипа вы предлагаете?',
+    a: 'Обычно показываем 2–3 разных концепции на выбор, дорабатываем понравившийся вариант по вашим правкам — до двух итераций включены в стоимость.',
+  },
+  {
+    q: 'В каких форматах я получу логотип?',
+    a: 'Передаём файлы в векторном (SVG, PDF) и растровом (PNG) форматах, а также цветовые коды — чтобы логотип можно было использовать где угодно: от сайта до наружной рекламы.',
+  },
+  {
+    q: 'Можно ли заказать логотип вместе с сайтом?',
+    a: 'Да, это частая комбинация — логотип разрабатывается в начале проекта и сразу используется в дизайне сайта.',
+  },
+  {
+    q: 'Сколько по времени занимает разработка?',
+    a: 'В среднем 3–5 дней на логотип. Пакет с фирменным стилем — от 5 до 8 дней.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Разработка логотипа',
+  name: 'Разработка логотипов',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: p.price.replace(/[^\d]/g, ''),
+    priceCurrency: 'RUB',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'Разработка логотипов' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — Разработка логотипов</p>
+      <h1>Логотип, который запоминается и работает на всех носителях</h1>
+      <p class="hero__lead">
+        Разрабатываем логотипы для бизнеса любой ниши — от кофейни до IT-компании.
+        Несколько концепций на выбор и готовые файлы для любых задач.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Заказать логотип</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть цены</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 3 000 ₽</strong>стоимость</div>
+        <div><strong>3–5 дней</strong>срок разработки</div>
+        <div><strong>2–3 концепции</strong>на выбор</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Как мы разрабатываем логотип</h2>
+      <p>
+        <strong>Логотип</strong> — это первое, что видит клиент, и то, что должно работать
+        одинаково хорошо на вывеске, сайте, визитке и в соцсетях. Мы начинаем с брифа:
+        разбираемся, чем занимается компания, кто её клиенты и какое впечатление логотип
+        должен производить — надёжность, дружелюбие, премиальность или динамику.
+      </p>
+      <p>
+        На основе брифа готовим 2–3 разные концепции — не вариации одной идеи, а разные
+        подходы к образу бренда. Вы выбираете направление, которое ближе, и мы дорабатываем
+        его в финальный логотип с учётом ваших правок. В результате получаете набор файлов,
+        готовых к использованию где угодно: от печати на упаковке до favicon на сайте.
+      </p>
+    </div>
+  </section>
+
+  <section id="primery">
+    <div class="container">
+      <p class="eyebrow">— Для кого разрабатываем</p>
+      <h2 class="section-title">Примеры логотипов для разных ниш</h2>
+      <div class="services">
+        {
+          examples.map((e) => (
+            <div class="logo-example">
+              <div class="logo-example__mark" style={`background:${e.bg};color:${e.fg}`}>{e.letter}</div>
+              <span class="service__tag">{e.niche}</span>
+              <h3 class="service__title">{e.title}</h3>
+              <p class="service__text">{e.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Стоимость</p>
+      <h2 class="section-title">Цены на разработку логотипа</h2>
+      <div class="pricing pricing--2col">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">Выгоднее по цене</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Заказать</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Стоимость зависит от сложности знака и количества правок. Точную цену называем
+        после короткого брифа.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о логотипах</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .logo-example {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-example__mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+</style>

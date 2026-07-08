@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Поддержка сайтов — техническое обслуживание от 5 000 ₽/мес | Valore Agency';
+const description =
+  'Техническая поддержка и обслуживание сайтов: обновления, мониторинг, резервные копии, доработки и правки. Тарифы от 5 000 ₽ в месяц.';
+const canonical = 'https://valoreagency.net/uslugi/podderzhka-sajtov';
+
+const includes = [
+  { icon: '🛰️', title: 'Мониторинг доступности', text: 'Следим, чтобы сайт был онлайн 24/7, и реагируем при сбоях.' },
+  { icon: '🔄', title: 'Обновления и безопасность', text: 'Обновляем компоненты и закрываем уязвимости, чтобы сайт не взломали.' },
+  { icon: '💾', title: 'Резервное копирование', text: 'Регулярно делаем бэкапы — при любой проблеме быстро откатываемся.' },
+  { icon: '✏️', title: 'Правки и доработки', text: 'Меняем тексты, цены, добавляем страницы и блоки по вашему запросу.' },
+  { icon: '🐞', title: 'Исправление ошибок', text: 'Оперативно чиним всё, что сломалось — от вёрстки до форм заявок.' },
+  { icon: '📈', title: 'Отчёт о работах', text: 'Ежемесячно присылаем отчёт о том, что было сделано на сайте.' },
+];
+
+const pricing = [
+  {
+    name: 'Базовый',
+    price: 'от 5 000 ₽/мес',
+    text: 'Мониторинг, обновления и резервное копирование — сайт всегда онлайн.',
+    features: ['Мониторинг доступности 24/7', 'Обновления и безопасность', 'Резервное копирование', 'До 2 мелких правок в месяц'],
+  },
+  {
+    name: 'Стандарт',
+    price: 'от 10 000 ₽/мес',
+    text: 'Всё из «Базового» плюс регулярные доработки и правки контента.',
+    features: ['Всё из тарифа «Базовый»', 'До 5 правок/доработок в месяц', 'Обновление текстов и цен', 'Приоритетная поддержка'],
+    accent: true,
+  },
+  {
+    name: 'Премиум',
+    price: 'от 18 000 ₽/мес',
+    text: 'Расширенная поддержка для сайтов с высокой активностью изменений.',
+    features: ['Всё из тарифа «Стандарт»', 'Безлимитные мелкие правки', 'Добавление новых страниц/блоков', 'Личный менеджер на связи'],
+  },
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит поддержка сайта?',
+    a: 'Базовый тариф — от 5 000 ₽ в месяц, стандарт — от 10 000 ₽, премиум с расширенной поддержкой — от 18 000 ₽ в месяц. Выбор тарифа зависит от того, как часто сайту нужны правки.',
+  },
+  {
+    q: 'Что входит в поддержку сайта?',
+    a: 'Мониторинг доступности, обновления и безопасность, резервное копирование, исправление ошибок и внесение правок — в зависимости от тарифа объём правок отличается.',
+  },
+  {
+    q: 'Вы поддерживаете сайты, которые сделал не Valore Agency?',
+    a: 'Да, при условии, что мы можем получить доступ к коду и хостингу. Перед подключением проведём короткий технический аудит, чтобы понять состояние сайта.',
+  },
+  {
+    q: 'Как быстро вы реагируете на проблему?',
+    a: 'На тарифах «Стандарт» и «Премиум» — приоритетная поддержка, реагируем в течение рабочего дня. Критичные сбои (сайт недоступен) стараемся устранять в первую очередь вне зависимости от тарифа.',
+  },
+  {
+    q: 'Можно ли подключить поддержку после того, как сайт сделал не ваш подрядчик?',
+    a: 'Да, это частый запрос. Подключаем поддержку в любой момент — достаточно дать доступ к хостингу и административной панели сайта.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Техническая поддержка сайтов',
+  name: 'Поддержка сайтов',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  areaServed: 'RU',
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: p.price.replace(/[^\d]/g, ''),
+    priceCurrency: 'RUB',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Услуги', href: '/#uslugi' },
+      { label: 'Поддержка сайтов' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Услуга — Поддержка сайтов</p>
+      <h1>Сайт всегда работает, обновляется и не ломается</h1>
+      <p class="hero__lead">
+        Берём на себя техническое обслуживание: обновления, мониторинг, бэкапы и правки —
+        вы занимаетесь бизнесом, а не настройками сайта.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Подключить поддержку</a>
+        <a href="#ceny" class="btn btn--ghost">Смотреть тарифы</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>от 5 000 ₽</strong>в месяц</div>
+        <div><strong>3 тарифа</strong>под разный объём правок</div>
+        <div><strong>24/7</strong>мониторинг доступности</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Зачем нужна поддержка сайта</h2>
+      <p>
+        После запуска сайту нужно техническое обслуживание: обновления безопасности,
+        мониторинг доступности, резервное копирование и оперативные правки. Без этого
+        сайт со временем начинает работать медленнее, теряет позиции в поиске или вовсе
+        становится уязвимым для взлома.
+      </p>
+      <p>
+        Мы берём эти задачи на себя — от мониторинга и бэкапов до внесения правок в тексты,
+        цены и структуру сайта. Вы просто присылаете запрос, а мы вносим изменения и
+        отчитываемся о проделанной работе.
+      </p>
+    </div>
+  </section>
+
+  <section id="chto-vhodit">
+    <div class="container">
+      <p class="eyebrow">— Что входит</p>
+      <h2 class="section-title">Задачи, которые мы берём на себя</h2>
+      <div class="services">
+        {
+          includes.map((i) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="ceny">
+    <div class="container">
+      <p class="eyebrow">— Тарифы</p>
+      <h2 class="section-title">Стоимость поддержки сайта</h2>
+      <div class="pricing">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">Популярный выбор</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#zayavka" class="btn btn--ghost price-card__btn">Подключить</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        Подберём тариф под ваш сайт на бесплатной консультации — учитываем размер сайта и
+        частоту изменений.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о поддержке</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
