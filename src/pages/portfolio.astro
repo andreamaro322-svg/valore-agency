@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ContactCta from '../components/ContactCta.astro';
+
+const title = 'Портфолио — примеры сайтов и логотипов | Valore Agency';
+const description =
+  'Примеры сайтов, лендингов и логотипов, которые может создать Valore Agency: от стоматологии до IT-стартапа. Разные форматы и ниши.';
+const canonical = 'https://valoreagency.net/portfolio';
+
+const works = [
+  { icon: '🦷', tag: 'Landing Page', title: 'Дента+', niche: 'Стоматологическая клиника', text: 'Одностраничный сайт с онлайн-записью, ценами на услуги и блоком врачей клиники.', result: 'SEO-структура + форма записи' },
+  { icon: '⚖️', tag: 'Сайт-визитка', title: 'ПравоЩит', niche: 'Юридическая компания', text: 'Компактный сайт с описанием практики, кейсами и формой заявки на консультацию.', result: 'Адаптивная вёрстка' },
+  { icon: '🏗️', tag: 'Корпоративный сайт', title: 'СтройГрупп', niche: 'Строительная компания', text: 'Многостраничный сайт с каталогом объектов, портфолио построек и калькулятором сметы.', result: 'До 10 страниц' },
+  { icon: '☕', tag: 'Landing + логотип', title: 'Кофе Волна', niche: 'Сеть кофеен', text: 'Лендинг сети кофеен с меню, картой точек и разработкой логотипа для бренда.', result: 'Логотип + сайт' },
+  { icon: '🏋️', tag: 'Сайт-визитка', title: 'Energy Fit', niche: 'Фитнес-клуб', text: 'Сайт с расписанием тренировок, тарифами абонементов и формой пробного занятия.', result: 'Интеграция с формами' },
+  { icon: '📦', tag: 'Сайт-каталог', title: 'ТехПоставка', niche: 'Оптовая компания', text: 'Каталог товаров с фильтрами по категориям, прайс-листом и заявкой на закупку.', result: 'Каталог + фильтры' },
+  { icon: '🍽️', tag: 'Landing Page', title: 'Медиум Rare', niche: 'Ресторан', text: 'Одностраничный сайт с меню, онлайн-бронированием столиков и фотогалереей зала.', result: 'Бронирование онлайн' },
+  { icon: '💻', tag: 'Корпоративный сайт', title: 'Клаудex', niche: 'IT-стартап', text: 'Сайт продукта с описанием сервиса, тарифами, блогом и разделом для партнёров.', result: 'Блог + SEO-структура' },
+  { icon: '💅', tag: 'Визитка + логотип', title: 'Blanc Beauty', niche: 'Салон красоты', text: 'Сайт-визитка с прайсом на услуги и разработка логотипа с фирменной палитрой.', result: 'Логотип + сайт' },
+  { icon: '🚗', tag: 'Landing Page', title: 'МоторПро', niche: 'Автосервис', text: 'Лендинг автосервиса с прайсом на ремонт, отзывами и формой записи на диагностику.', result: 'Форма записи' },
+];
+
+const faq = [
+  {
+    q: 'Можно ли посмотреть эти сайты вживую?',
+    a: 'Работы в портфолио показывают форматы и подходы, которые мы применяем в проектах. Ссылки на конкретные боевые проекты клиентов предоставляем по запросу на консультации — часть проектов защищена соглашением о конфиденциальности.',
+  },
+  {
+    q: 'Вы делаете сайты только для этих ниш?',
+    a: 'Нет, ниши в портфолио — лишь часть направлений, с которыми мы работаем. Создаём сайты для любого бизнеса: от частных специалистов до крупных компаний.',
+  },
+  {
+    q: 'Сколько стоит сайт, похожий на один из примеров?',
+    a: 'Цена зависит от формата: Landing Page — от 35 000 ₽, сайт-визитка — от 37 000 ₽, корпоративный сайт — от 45 000 ₽. Точную стоимость считаем после консультации.',
+  },
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Портфолио Valore Agency',
+  description,
+  hasPart: works.map((w) => ({
+    '@type': 'CreativeWork',
+    name: `${w.title} — ${w.niche}`,
+    about: w.niche,
+    description: w.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Портфолио' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Портфолио</p>
+      <h1>Примеры сайтов и логотипов, которые мы создаём</h1>
+      <p class="hero__lead">
+        Показываем форматы и ниши, с которыми работаем: от лендингов до многостраничных
+        корпоративных сайтов и логотипов для разного бизнеса.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Обсудить свой проект</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="raboty">
+    <div class="container">
+      <div class="portfolio-grid">
+        {
+          works.map((w) => (
+            <div class="portfolio-card">
+              <div class="portfolio-card__cover" style="background:var(--gray-soft)">{w.icon}</div>
+              <div class="portfolio-card__body">
+                <span class="portfolio-card__tag">{w.tag}</span>
+                <h2 class="portfolio-card__title">{w.title}</h2>
+                <p class="service__tag" style="margin-bottom:6px">{w.niche}</p>
+                <p class="portfolio-card__text">{w.text}</p>
+                <span class="portfolio-card__result">{w.result}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Как мы подходим к проектам</h2>
+      <p>
+        Каждый проект в портфолио — это пример формата и подхода, который мы используем в
+        работе с клиентами: от структуры и дизайна до SEO-оптимизации и микроразметки.
+        Реальные боевые проекты клиентов показываем на консультации — часть из них защищена
+        соглашением о конфиденциальности, поэтому мы не публикуем прямые ссылки на сайты
+        клиентов в открытом доступе.
+      </p>
+      <p>
+        Если у вас похожая задача — сделаем сайт под ваш бизнес с нуля, учитывая вашу нишу,
+        аудиторию и цели по заявкам.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Вопросы и ответы</p>
+      <h2 class="section-title">Частые вопросы о портфолио</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

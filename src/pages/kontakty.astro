@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ContactCta from '../components/ContactCta.astro';
+
+const title = 'Контакты Valore Agency — телефон, Telegram, WhatsApp, ВКонтакте';
+const description =
+  'Свяжитесь с Valore Agency любым удобным способом: телефон, Telegram, WhatsApp, ВКонтакте. Отвечаем в течение рабочего дня.';
+const canonical = 'https://valoreagency.net/kontakty';
+
+const details = [
+  { icon: '🕒', title: 'Режим работы', text: 'Пн–Пт, 9:00–19:00 (МСК). Заявки принимаем 24/7.' },
+  { icon: '⚡', title: 'Скорость ответа', text: 'Отвечаем на заявки в течение рабочего дня.' },
+  { icon: '📍', title: 'Формат работы', text: 'Работаем удалённо с клиентами по всей России.' },
+];
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: title,
+  description,
+  url: canonical,
+  about: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Контакты' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Контакты</p>
+      <h1>Свяжитесь с нами удобным способом</h1>
+      <p class="hero__lead">
+        Расскажите о задаче — ответим, зададим пару уточняющих вопросов и предложим решение
+        с ориентировочной ценой и сроками.
+      </p>
+    </div>
+  </section>
+
+  <section id="detali">
+    <div class="container">
+      <div class="services">
+        {
+          details.map((d) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{d.icon}</span>
+              <h3 class="service__title">{d.title}</h3>
+              <p class="service__text">{d.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    title="Способы связи"
+    lead="Выберите канал, где вам удобнее общаться — мы на связи в каждом из них."
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+</Layout>

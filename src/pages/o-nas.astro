@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ContactCta from '../components/ContactCta.astro';
+
+const title = 'О компании Valore Agency — digital-агентство полного цикла';
+const description =
+  'Valore Agency — команда, которая создаёт сайты, продвигает их в поиске и в нейросетях, разрабатывает логотипы и сопровождает проекты. Один подрядчик на весь цикл.';
+const canonical = 'https://valoreagency.net/o-nas';
+
+const values = [
+  { icon: '🎯', title: 'Результат, а не процесс', text: 'Оцениваем работу по заявкам и позициям в поиске, а не по красивым отчётам без цифр.' },
+  { icon: '🤝', title: 'Один подрядчик — весь цикл', text: 'От сайта до продвижения и поддержки — не нужно собирать команду из разных фрилансеров.' },
+  { icon: '🔍', title: 'Прозрачность', text: 'Называем реальные сроки и цены, показываем, что именно делаем на каждом этапе.' },
+  { icon: '⚡', title: 'Скорость', text: 'Лендинг — от 3 дней, ответ на заявку — в течение рабочего дня.' },
+];
+
+const team = [
+  { letter: 'А', role: 'Проект-менеджер', text: 'Ведёт проект от заявки до сдачи, отвечает за сроки и коммуникацию.' },
+  { letter: 'Д', role: 'Дизайнер', text: 'Разрабатывает визуальный стиль сайта и логотипы под бренд клиента.' },
+  { letter: 'Р', role: 'Разработчик', text: 'Вёрстка и программирование сайта — быстро, адаптивно, без технического долга.' },
+  { letter: 'С', role: 'SEO/GEO-специалист', text: 'Отвечает за видимость сайта в поиске и в нейросетях после запуска.' },
+];
+
+const reasons = [
+  'Делаем сайты, которые изначально готовы к SEO- и GEO-продвижению',
+  'Называем реальные сроки: лендинг — от 3 дней, корпоративный сайт — от 2 недель',
+  'Работаем по фиксированной цене без скрытых доплат',
+  'Даём план исправлений на аудите, а не просто список проблем',
+  'Используем только белые методы продвижения и линкбилдинга',
+  'Остаёмся на связи после сдачи проекта — есть услуга поддержки',
+];
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: canonical,
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Valore Agency',
+    url: 'https://valoreagency.net/',
+    description:
+      'Digital-агентство полного цикла: создание сайтов, SEO и GEO-продвижение, аудит, разработка логотипов, поддержка сайтов и линкбилдинг.',
+  },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'О нас' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">О компании</p>
+      <h1>Digital-агентство, которое отвечает за весь цикл — от сайта до заявок</h1>
+      <p class="hero__lead">
+        Valore Agency создаёт сайты, продвигает их в поиске и в нейросетях, разрабатывает
+        логотипы и сопровождает проекты после запуска — одной командой.
+      </p>
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--dark">Обсудить проект</a>
+        <a href="/portfolio" class="btn btn--ghost">Смотреть портфолио</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Почему Valore Agency</h2>
+      <p>
+        Мы собрали Valore Agency, чтобы решить типичную проблему малого и среднего бизнеса:
+        создание и продвижение сайта обычно требует нескольких подрядчиков — дизайнера,
+        разработчика, seo-специалиста, линкбилдера. Каждый отвечает только за свою часть,
+        а результат — трафик и заявки — оказывается ничьей зоной ответственности.
+      </p>
+      <p>
+        Мы объединили создание сайтов, SEO и GEO-продвижение, аудит, разработку логотипов,
+        поддержку и линкбилдинг в одну команду. Это значит, что сайт изначально
+        проектируется с учётом продвижения, а не дорабатывается под SEO постфактум —
+        и что за конечный результат отвечает один подрядчик, а не пять разных фрилансеров.
+      </p>
+      <p>
+        Отдельное внимание уделяем <strong>GEO-продвижению</strong> — видимости в
+        нейросетях. Мы одними из первых на рынке начали системно готовить сайты клиентов
+        к тому, чтобы их находили и рекомендовали ChatGPT, Алиса AI и Gemini, а не только
+        классический поиск Яндекса и Google.
+      </p>
+    </div>
+  </section>
+
+  <section id="printsipy">
+    <div class="container">
+      <p class="eyebrow">— Как мы работаем</p>
+      <h2 class="section-title">Наши принципы</h2>
+      <div class="services">
+        {
+          values.map((v) => (
+            <div class="service" style="background:var(--lime-soft)">
+              <span class="service__icon" aria-hidden="true">{v.icon}</span>
+              <h3 class="service__title">{v.title}</h3>
+              <p class="service__text">{v.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="komanda">
+    <div class="container">
+      <p class="eyebrow">— Команда</p>
+      <h2 class="section-title">Кто работает над вашим проектом</h2>
+      <div class="services services--2col">
+        {
+          team.map((t) => (
+            <div class="logo-example">
+              <div class="logo-example__mark" style="background:var(--dark);color:#fff">{t.letter}</div>
+              <h3 class="service__title">{t.role}</h3>
+              <p class="service__text">{t.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="pochemu-my">
+    <div class="container">
+      <p class="eyebrow">— Почему выбирают нас</p>
+      <h2 class="section-title">Что отличает Valore Agency</h2>
+      <ul class="reasons">
+        {reasons.map((r) => <li>{r}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <ContactCta />
+
+  <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+</Layout>
+
+<style>
+  .logo-example {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-example__mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .reasons {
+    max-width: 720px;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+  .reasons li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px 16px 44px;
+    font-size: 15px;
+    color: var(--ink-60);
+    position: relative;
+  }
+  .reasons li::before {
+    content: '✓';
+    position: absolute;
+    left: 18px;
+    color: var(--lime);
+    font-weight: 700;
+    font-size: 16px;
+  }
+</style>
