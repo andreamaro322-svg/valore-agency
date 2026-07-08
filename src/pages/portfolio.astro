@@ -9,16 +9,16 @@ const description =
 const canonical = 'https://valoreagency.net/portfolio';
 
 const works = [
-  { icon: '🦷', tag: 'Landing Page', title: 'Дента+', niche: 'Стоматологическая клиника', text: 'Одностраничный сайт с онлайн-записью, ценами на услуги и блоком врачей клиники.', result: 'SEO-структура + форма записи' },
-  { icon: '⚖️', tag: 'Сайт-визитка', title: 'ПравоЩит', niche: 'Юридическая компания', text: 'Компактный сайт с описанием практики, кейсами и формой заявки на консультацию.', result: 'Адаптивная вёрстка' },
-  { icon: '🏗️', tag: 'Корпоративный сайт', title: 'СтройГрупп', niche: 'Строительная компания', text: 'Многостраничный сайт с каталогом объектов, портфолио построек и калькулятором сметы.', result: 'До 10 страниц' },
-  { icon: '☕', tag: 'Landing + логотип', title: 'Кофе Волна', niche: 'Сеть кофеен', text: 'Лендинг сети кофеен с меню, картой точек и разработкой логотипа для бренда.', result: 'Логотип + сайт' },
-  { icon: '🏋️', tag: 'Сайт-визитка', title: 'Energy Fit', niche: 'Фитнес-клуб', text: 'Сайт с расписанием тренировок, тарифами абонементов и формой пробного занятия.', result: 'Интеграция с формами' },
-  { icon: '📦', tag: 'Сайт-каталог', title: 'ТехПоставка', niche: 'Оптовая компания', text: 'Каталог товаров с фильтрами по категориям, прайс-листом и заявкой на закупку.', result: 'Каталог + фильтры' },
-  { icon: '🍽️', tag: 'Landing Page', title: 'Медиум Rare', niche: 'Ресторан', text: 'Одностраничный сайт с меню, онлайн-бронированием столиков и фотогалереей зала.', result: 'Бронирование онлайн' },
-  { icon: '💻', tag: 'Корпоративный сайт', title: 'Клаудex', niche: 'IT-стартап', text: 'Сайт продукта с описанием сервиса, тарифами, блогом и разделом для партнёров.', result: 'Блог + SEO-структура' },
-  { icon: '💅', tag: 'Визитка + логотип', title: 'Blanc Beauty', niche: 'Салон красоты', text: 'Сайт-визитка с прайсом на услуги и разработка логотипа с фирменной палитрой.', result: 'Логотип + сайт' },
-  { icon: '🚗', tag: 'Landing Page', title: 'МоторПро', niche: 'Автосервис', text: 'Лендинг автосервиса с прайсом на ремонт, отзывами и формой записи на диагностику.', result: 'Форма записи' },
+  { slug: 'denta', icon: '🦷', tag: 'Landing Page', title: 'Дента+', niche: 'Стоматологическая клиника', text: 'Одностраничный сайт с онлайн-записью, ценами на услуги и блоком врачей клиники.', result: 'SEO-структура + форма записи' },
+  { slug: 'pravoshield', icon: '⚖️', tag: 'Сайт-визитка', title: 'ПравоЩит', niche: 'Юридическая компания', text: 'Компактный сайт с описанием практики, кейсами и формой заявки на консультацию.', result: 'Адаптивная вёрстка' },
+  { slug: 'stroygroup', icon: '🏗️', tag: 'Корпоративный сайт', title: 'СтройГрупп', niche: 'Строительная компания', text: 'Многостраничный сайт с каталогом объектов, портфолио построек и калькулятором сметы.', result: 'До 10 страниц' },
+  { slug: 'coffeewave', icon: '☕', tag: 'Landing + логотип', title: 'Кофе Волна', niche: 'Сеть кофеен', text: 'Лендинг сети кофеен с меню, картой точек и разработкой логотипа для бренда.', result: 'Логотип + сайт' },
+  { slug: 'energyfit', icon: '🏋️', tag: 'Сайт-визитка', title: 'Energy Fit', niche: 'Фитнес-клуб', text: 'Сайт с расписанием тренировок, тарифами абонементов и формой пробного занятия.', result: 'Интеграция с формами' },
+  { slug: 'tehpostavka', icon: '📦', tag: 'Сайт-каталог', title: 'ТехПоставка', niche: 'Оптовая компания', text: 'Каталог товаров с фильтрами по категориям, прайс-листом и заявкой на закупку.', result: 'Каталог + фильтры' },
+  { slug: 'mediumrare', icon: '🍽️', tag: 'Landing Page', title: 'Медиум Rare', niche: 'Ресторан', text: 'Одностраничный сайт с меню, онлайн-бронированием столиков и фотогалереей зала.', result: 'Бронирование онлайн' },
+  { slug: 'cloudex', icon: '💻', tag: 'Корпоративный сайт', title: 'Клаудex', niche: 'IT-стартап', text: 'Сайт продукта с описанием сервиса, тарифами, блогом и разделом для партнёров.', result: 'Блог + SEO-структура' },
+  { slug: 'blancbeauty', icon: '💅', tag: 'Визитка + логотип', title: 'Blanc Beauty', niche: 'Салон красоты', text: 'Сайт-визитка с прайсом на услуги и разработка логотипа с фирменной палитрой.', result: 'Логотип + сайт' },
+  { slug: 'motorpro', icon: '🚗', tag: 'Landing Page', title: 'МоторПро', niche: 'Автосервис', text: 'Лендинг автосервиса с прайсом на ремонт, отзывами и формой записи на диагностику.', result: 'Форма записи' },
 ];
 
 const faq = [
@@ -85,7 +85,18 @@ const faqSchema = {
         {
           works.map((w) => (
             <div class="portfolio-card">
-              <div class="portfolio-card__cover" style="background:var(--gray-soft)">{w.icon}</div>
+              <button
+                type="button"
+                class="portfolio-card__cover"
+                style="background:var(--gray-soft)"
+                data-lightbox-open
+                data-slug={w.slug}
+                data-title={`${w.title} — ${w.niche}`}
+                aria-label={`Открыть превью проекта ${w.title}`}
+              >
+                <span aria-hidden="true">{w.icon}</span>
+                <span class="portfolio-card__cover-hint">Смотреть превью →</span>
+              </button>
               <div class="portfolio-card__body">
                 <span class="portfolio-card__tag">{w.tag}</span>
                 <h2 class="portfolio-card__title">{w.title}</h2>
@@ -136,6 +147,122 @@ const faqSchema = {
 
   <ContactCta />
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-lightbox-close></div>
+    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox__topbar">
+        <span class="lightbox__title" id="lightbox-title">Превью проекта</span>
+        <button type="button" class="lightbox__close" data-lightbox-close aria-label="Закрыть превью">✕</button>
+      </div>
+      <div class="lightbox__browser">
+        <div class="lightbox__browser-bar">
+          <span class="lightbox__dot lightbox__dot--red" aria-hidden="true"></span>
+          <span class="lightbox__dot lightbox__dot--yellow" aria-hidden="true"></span>
+          <span class="lightbox__dot lightbox__dot--green" aria-hidden="true"></span>
+          <span class="lightbox__url" id="lightbox-url">valoreagency.net</span>
+        </div>
+        <div class="lightbox__frame-wrap">
+          <iframe id="lightbox-frame" class="lightbox__frame" title="Превью проекта из портфолио" loading="lazy" />
+        </div>
+      </div>
+      <div class="lightbox__controls">
+        <button type="button" class="lightbox__nav" id="lightbox-prev" aria-label="Предыдущий экран">←</button>
+        <div class="lightbox__pagination" id="lightbox-pagination"></div>
+        <button type="button" class="lightbox__nav" id="lightbox-next" aria-label="Следующий экран">→</button>
+      </div>
+      <p class="lightbox__note">Это макет-пример из портфолио, а не сайт реального клиента.</p>
+    </div>
+  </div>
+
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <script>
+    const modal = document.getElementById('lightbox');
+    const frame = document.getElementById('lightbox-frame') as HTMLIFrameElement;
+    const titleEl = document.getElementById('lightbox-title');
+    const urlEl = document.getElementById('lightbox-url');
+    const paginationEl = document.getElementById('lightbox-pagination');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+
+    let sections: (HTMLElement | Element)[] = [];
+    let current = 0;
+
+    function renderDots() {
+      if (!paginationEl) return;
+      paginationEl.innerHTML = '';
+      const total = Math.max(sections.length, 1);
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'lightbox__pagination-dot' + (i === current ? ' is-active' : '');
+        paginationEl.appendChild(dot);
+      }
+    }
+
+    function goTo(index: number) {
+      if (!sections.length) return;
+      current = (index + sections.length) % sections.length;
+      const target = sections[current] as HTMLElement;
+      if (target && target.scrollIntoView) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      renderDots();
+    }
+
+    function collectSections() {
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+        const found = Array.from(doc.querySelectorAll('section'));
+        sections = found.length ? found : [doc.body];
+        current = 0;
+        renderDots();
+      } catch (e) {
+        sections = [];
+      }
+    }
+
+    function openLightbox(slug: string, title: string) {
+      if (!modal) return;
+      if (titleEl) titleEl.textContent = title;
+      if (urlEl) urlEl.textContent = `valoreagency.net/mockups/${slug}.html`;
+      frame.src = `/mockups/${slug}.html`;
+      frame.onload = collectSections;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      frame.src = 'about:blank';
+      sections = [];
+    }
+
+    document.querySelectorAll('[data-lightbox-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const slug = btn.getAttribute('data-slug') || '';
+        const title = btn.getAttribute('data-title') || 'Превью проекта';
+        openLightbox(slug, title);
+      });
+    });
+
+    document.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+      el.addEventListener('click', closeLightbox);
+    });
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (!modal?.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+  </script>
 </Layout>
