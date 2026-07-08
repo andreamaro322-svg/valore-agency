@@ -9,12 +9,12 @@ const description =
 const canonical = 'https://valoreagency.net/uslugi/razrabotka-logotipov';
 
 const examples = [
-  { letter: 'К', bg: 'var(--lime)', fg: 'var(--dark)', niche: 'Кофейня и кафе', title: 'Логотип для сети кофеен', text: 'Тёплый, дружелюбный стиль с монограммой и фирменным паттерном для упаковки.' },
-  { letter: 'IT', bg: 'var(--pink)', fg: 'var(--dark)', niche: 'IT и стартапы', title: 'Логотип для IT-компании', text: 'Минималистичный знак, который хорошо смотрится в интерфейсах и на favicon.' },
-  { letter: 'Б', bg: 'var(--dark)', fg: '#fff', niche: 'Салоны красоты', title: 'Логотип для салона красоты', text: 'Изящная типографика и знак, отражающие премиальность услуг.' },
-  { letter: 'С', bg: 'var(--lime)', fg: 'var(--dark)', niche: 'Строительство', title: 'Логотип для строительной компании', text: 'Строгий, надёжный стиль — показывает стабильность и масштаб компании.' },
-  { letter: 'Ф', bg: 'var(--pink)', fg: 'var(--dark)', niche: 'Фитнес и спорт', title: 'Логотип для фитнес-клуба', text: 'Динамичный знак с акцентом на движение и энергию бренда.' },
-  { letter: 'Ю', bg: 'var(--dark)', fg: '#fff', niche: 'Юридические услуги', title: 'Логотип для юридической компании', text: 'Классическая, сдержанная подача — доверие и экспертность с первого взгляда.' },
+  { img: '/logos/coffee-wave.svg', niche: 'Кофейня и кафе', title: 'Логотип для сети кофеен', text: 'Тёплый, дружелюбный стиль с монограммой и фирменным паттерном для упаковки.' },
+  { img: '/logos/it-cloud.svg', niche: 'IT и стартапы', title: 'Логотип для IT-компании', text: 'Минималистичный знак, который хорошо смотрится в интерфейсах и на favicon.' },
+  { img: '/logos/beauty-bloom.svg', niche: 'Салоны красоты', title: 'Логотип для салона красоты', text: 'Изящная типографика и знак, отражающие премиальность услуг.' },
+  { img: '/logos/construction-crane.svg', niche: 'Строительство', title: 'Логотип для строительной компании', text: 'Строгий, надёжный стиль — показывает стабильность и масштаб компании.' },
+  { img: '/logos/fitness-bolt.svg', niche: 'Фитнес и спорт', title: 'Логотип для фитнес-клуба', text: 'Динамичный знак с акцентом на движение и энергию бренда.' },
+  { img: '/logos/legal-shield.svg', niche: 'Юридические услуги', title: 'Логотип для юридической компании', text: 'Классическая, сдержанная подача — доверие и экспертность с первого взгляда.' },
 ];
 
 const pricing = [
@@ -141,7 +141,7 @@ const faqSchema = {
         {
           examples.map((e) => (
             <div class="logo-example">
-              <div class="logo-example__mark" style={`background:${e.bg};color:${e.fg}`}>{e.letter}</div>
+              <img src={e.img} alt={e.title} class="logo-example__mark" width="56" height="56" loading="lazy" />
               <span class="service__tag">{e.niche}</span>
               <h3 class="service__title">{e.title}</h3>
               <p class="service__text">{e.text}</p>
@@ -215,13 +215,7 @@ const faqSchema = {
     width: 56px;
     height: 56px;
     border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--dark);
     margin-bottom: 16px;
+    display: block;
   }
 </style>
