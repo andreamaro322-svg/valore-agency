@@ -3,108 +3,160 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ContactCta from '../components/ContactCta.astro';
 
-const title = 'Портфолио — примеры сайтов и логотипов | Valore Agency';
+const title = 'Наши проекты — разработка сайтов | Valore Agency';
 const description =
-  'Примеры сайтов, лендингов и логотипов, которые может создать Valore Agency: от стоматологии до IT-стартапа. Разные форматы и ниши.';
+  'Реальные проекты Valore Agency: Landing Page, многостраничные сайты и информационные порталы. Примеры дизайна, разработки и SEO-структуры.';
 const canonical = 'https://valoreagency.net/portfolio';
 
 const works = [
-  { slug: 'denta', icon: '🦷', tag: 'Landing Page', title: 'Дента+', niche: 'Стоматологическая клиника', text: 'Одностраничный сайт с онлайн-записью, ценами на услуги и блоком врачей клиники.', result: 'SEO-структура + форма записи' },
-  { slug: 'pravoshield', icon: '⚖️', tag: 'Сайт-визитка', title: 'ПравоЩит', niche: 'Юридическая компания', text: 'Компактный сайт с описанием практики, кейсами и формой заявки на консультацию.', result: 'Адаптивная вёрстка' },
-  { slug: 'stroygroup', icon: '🏗️', tag: 'Корпоративный сайт', title: 'СтройГрупп', niche: 'Строительная компания', text: 'Многостраничный сайт с каталогом объектов, портфолио построек и калькулятором сметы.', result: 'До 10 страниц' },
-  { slug: 'coffeewave', icon: '☕', tag: 'Landing + логотип', title: 'Кофе Волна', niche: 'Сеть кофеен', text: 'Лендинг сети кофеен с меню, картой точек и разработкой логотипа для бренда.', result: 'Логотип + сайт' },
-  { slug: 'energyfit', icon: '🏋️', tag: 'Сайт-визитка', title: 'Energy Fit', niche: 'Фитнес-клуб', text: 'Сайт с расписанием тренировок, тарифами абонементов и формой пробного занятия.', result: 'Интеграция с формами' },
-  { slug: 'tehpostavka', icon: '📦', tag: 'Сайт-каталог', title: 'ТехПоставка', niche: 'Оптовая компания', text: 'Каталог товаров с фильтрами по категориям, прайс-листом и заявкой на закупку.', result: 'Каталог + фильтры' },
-  { slug: 'mediumrare', icon: '🍽️', tag: 'Landing Page', title: 'Медиум Rare', niche: 'Ресторан', text: 'Одностраничный сайт с меню, онлайн-бронированием столиков и фотогалереей зала.', result: 'Бронирование онлайн' },
-  { slug: 'cloudex', icon: '💻', tag: 'Корпоративный сайт', title: 'Клаудex', niche: 'IT-стартап', text: 'Сайт продукта с описанием сервиса, тарифами, блогом и разделом для партнёров.', result: 'Блог + SEO-структура' },
-  { slug: 'blancbeauty', icon: '💅', tag: 'Визитка + логотип', title: 'Blanc Beauty', niche: 'Салон красоты', text: 'Сайт-визитка с прайсом на услуги и разработка логотипа с фирменной палитрой.', result: 'Логотип + сайт' },
-  { slug: 'motorpro', icon: '🚗', tag: 'Landing Page', title: 'МоторПро', niche: 'Автосервис', text: 'Лендинг автосервиса с прайсом на ремонт, отзывами и формой записи на диагностику.', result: 'Форма записи' },
+  {
+    name: 'GameDaily',
+    domain: 'gamedaily.ru',
+    url: 'https://gamedaily.ru/',
+    tag: 'Медиа-сайт · Разработка · SEO · Контентная архитектура',
+    kind: 'Информационный портал',
+    heading: 'Информационный портал об игровой индустрии',
+    lead: 'GameDaily — контентный проект о видеоиграх и игровой индустрии: новости, материалы о новых играх, гайды и киберспорт.',
+    text: 'Основная задача — масштабируемая архитектура, которая позволяет работать с большим количеством публикаций и постепенно расширять число тематических направлений.',
+    done: [
+      'главная страница с лентой публикаций',
+      'тематические категории',
+      'игровые новости',
+      'материалы о новых играх',
+      'гайды',
+      'разделы о киберспорте',
+      'структура внутренних страниц',
+      'поиск по сайту',
+      'навигация между публикациями',
+      'архитектура для дальнейшего расширения',
+      'адаптация под мобильные устройства',
+      'SEO-структура контентного проекта',
+    ],
+    accent: 'var(--pink-soft)',
+  },
+  {
+    name: '«Основы»',
+    domain: 'kasparova-osnovi.ru',
+    url: 'https://kasparova-osnovi.ru/',
+    tag: 'Landing Page · UX/UI · Разработка',
+    kind: 'Landing Page',
+    heading: 'Landing Page психологического практикума',
+    lead: 'Одностраничный сайт для авторского психологического практикума.',
+    text: 'Задача — представить специалиста и программу, подробно объяснить формат практикума и последовательно привести пользователя к записи. Информация раскрывается постепенно: от первого знакомства с продуктом до программы, отзывов, стоимости и ответов на вопросы.',
+    done: [
+      'структура Landing Page',
+      'первый экран с основным предложением',
+      'презентация специалиста',
+      'описание практикума',
+      'программа',
+      'блоки с преимуществами',
+      'отзывы',
+      'информация об участии',
+      'частые вопросы',
+      'несколько точек перехода к целевому действию',
+      'адаптация под мобильные устройства',
+    ],
+    accent: 'var(--lime-soft)',
+  },
+  {
+    name: 'Дарья Антонова',
+    domain: 'psychologistdarya.online',
+    url: 'https://psychologistdarya.online/',
+    tag: 'Многостраничный сайт · UX/UI · Разработка · SEO',
+    kind: 'Многостраничный сайт специалиста',
+    heading: 'Сайт частного психолога',
+    lead: 'Многостраничный сайт специалиста для представления услуг психолога и развития проекта через органический поиск и полезный контент.',
+    text: 'В отличие от одностраничного Landing Page здесь полноценная структура с отдельными направлениями работы, информацией о специалисте и блогом. Такой формат позволяет постепенно добавлять новые страницы услуг и материалы, не перестраивая весь проект.',
+    done: [
+      'главная страница',
+      'информация о специалисте',
+      'структура услуг',
+      'отдельные направления работы',
+      'блог',
+      'информационные материалы',
+      'контактный раздел',
+      'удобные способы связи',
+      'адаптация под мобильные устройства',
+      'структура для дальнейшего SEO-развития',
+    ],
+    accent: 'var(--gray-soft)',
+  },
 ];
 
-const faq = [
-  {
-    q: 'Можно ли посмотреть эти сайты вживую?',
-    a: 'Работы в портфолио показывают форматы и подходы, которые мы применяем в проектах. Ссылки на конкретные боевые проекты клиентов предоставляем по запросу на консультации — часть проектов защищена соглашением о конфиденциальности.',
-  },
-  {
-    q: 'Вы делаете сайты только для этих ниш?',
-    a: 'Нет, ниши в портфолио — лишь часть направлений, с которыми мы работаем. Создаём сайты для любого бизнеса: от частных специалистов до крупных компаний.',
-  },
-  {
-    q: 'Сколько стоит сайт, похожий на один из примеров?',
-    a: 'Цена зависит от формата: Landing Page — от 35 000 ₽, сайт-визитка — от 37 000 ₽, корпоративный сайт — от 45 000 ₽. Точную стоимость считаем после консультации.',
-  },
+const factors = [
+  'задачу бизнеса или проекта',
+  'структуру страниц',
+  'пользовательский путь',
+  'понятность навигации',
+  'отображение на мобильных устройствах',
+  'целевые действия',
+  'техническую реализацию',
+  'возможность дальнейшего развития',
+  'SEO, если органический поиск важен для проекта',
 ];
 
 const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Портфолио Valore Agency',
+  name: 'Наши проекты — Valore Agency',
   description,
+  url: canonical,
   hasPart: works.map((w) => ({
-    '@type': 'CreativeWork',
-    name: `${w.title} — ${w.niche}`,
-    about: w.niche,
-    description: w.text,
-  })),
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faq.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
+    '@type': 'WebSite',
+    name: w.name,
+    url: w.url,
+    description: w.lead,
   })),
 };
 ---
 
 <Layout title={title} description={description} canonical={canonical}>
-  <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Портфолио' }]} />
+  <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Наши проекты' }]} />
 
   <section class="hero hero--center">
     <div class="hero__blob hero__blob--lime"></div>
     <div class="hero__blob hero__blob--pink"></div>
     <div class="container hero__inner">
       <p class="eyebrow">Портфолио</p>
-      <h1>Примеры сайтов и логотипов, которые мы создаём</h1>
+      <h1>Наши проекты</h1>
       <p class="hero__lead">
-        Показываем форматы и ниши, с которыми работаем: от лендингов до многостраничных
-        корпоративных сайтов и логотипов для разного бизнеса.
+        Здесь мы показываем реальные запущенные сайты, над которыми работали: от Landing Page
+        и сайтов специалистов до информационных проектов. Для каждого проекта рассказываем
+        о его задаче, структуре и основных решениях.
       </p>
       <div class="hero__actions">
-        <a href="#zayavka" class="btn btn--dark">Обсудить свой проект</a>
+        <a href="https://t.me/Valoreagency" target="_blank" rel="nofollow noopener" class="btn btn--dark">Обсудить свой проект</a>
       </div>
     </div>
   </section>
 
   <section id="raboty">
     <div class="container">
-      <div class="portfolio-grid">
+      <p class="eyebrow">— Реализованные проекты</p>
+      <h2 class="section-title">Сайты, которые уже работают</h2>
+
+      <div class="cases">
         {
           works.map((w) => (
-            <div class="portfolio-card">
-              <button
-                type="button"
-                class="portfolio-card__cover"
-                style="background:var(--gray-soft)"
-                data-lightbox-open
-                data-slug={w.slug}
-                data-title={`${w.title} — ${w.niche}`}
-                aria-label={`Открыть превью проекта ${w.title}`}
-              >
-                <span aria-hidden="true">{w.icon}</span>
-                <span class="portfolio-card__cover-hint">Смотреть превью →</span>
-              </button>
-              <div class="portfolio-card__body">
-                <span class="portfolio-card__tag">{w.tag}</span>
-                <h2 class="portfolio-card__title">{w.title}</h2>
-                <p class="service__tag" style="margin-bottom:6px">{w.niche}</p>
-                <p class="portfolio-card__text">{w.text}</p>
-                <span class="portfolio-card__result">{w.result}</span>
+            <article class="case">
+              <div class="case__cover" style={`background:${w.accent}`}>
+                <span class="case__kind">{w.kind}</span>
+                <span class="case__domain">{w.domain}</span>
               </div>
-            </div>
+              <div class="case__body">
+                <span class="case__tag">{w.tag}</span>
+                <h3 class="case__title">{w.heading}</h3>
+                <p class="case__lead">{w.lead}</p>
+                <p class="case__text">{w.text}</p>
+                <p class="case__subtitle">Что реализовано</p>
+                <ul class="case__list">
+                  {w.done.map((d) => <li>{d}</li>)}
+                </ul>
+                <a href={w.url} class="btn btn--ghost case__btn" target="_blank" rel="noopener">
+                  Посмотреть сайт →
+                </a>
+              </div>
+            </article>
           ))
         }
       </div>
@@ -113,156 +165,194 @@ const faqSchema = {
 
   <section class="prose">
     <div class="container">
-      <h2 class="section-title">Как мы подходим к проектам</h2>
+      <h2 class="section-title">Разные проекты требуют разного подхода</h2>
       <p>
-        Каждый проект в портфолио — это пример формата и подхода, который мы используем в
-        работе с клиентами: от структуры и дизайна до SEO-оптимизации и микроразметки.
-        Реальные боевые проекты клиентов показываем на консультации — часть из них защищена
-        соглашением о конфиденциальности, поэтому мы не публикуем прямые ссылки на сайты
-        клиентов в открытом доступе.
+        У каждого сайта своя задача. Для <strong>Landing Page</strong> важно сфокусировать
+        пользователя на одном предложении и последовательно привести его к целевому действию.
       </p>
       <p>
-        Если у вас похожая задача — сделаем сайт под ваш бизнес с нуля, учитывая вашу нишу,
-        аудиторию и цели по заявкам.
+        Для <strong>сайта специалиста</strong> важна полноценная структура, которая позволяет
+        представить несколько услуг, сформировать доверие и постепенно развивать проект через
+        новые страницы и контент.
+      </p>
+      <p>
+        Для <strong>информационного портала</strong> на первый план выходит масштабируемость:
+        работа с большим количеством рубрик, публикаций и постоянно обновляемой информацией.
+      </p>
+      <p>
+        Поэтому мы не используем одну универсальную структуру для всех проектов. Сначала
+        определяем задачу будущего сайта, а затем подбираем подходящую архитектуру,
+        функциональность и дизайн.
       </p>
     </div>
   </section>
 
-  <section id="faq">
+  <section id="podhod">
     <div class="container">
-      <p class="eyebrow">— Вопросы и ответы</p>
-      <h2 class="section-title">Частые вопросы о портфолио</h2>
-      <div class="faq">
-        {
-          faq.map((item) => (
-            <details class="faq__item">
-              <summary class="faq__q">{item.q}</summary>
-              <p class="faq__a">{item.a}</p>
-            </details>
-          ))
-        }
-      </div>
+      <p class="eyebrow">— Что мы учитываем при разработке</p>
+      <h2 class="section-title">Сайт — это не только его внешний вид</h2>
+      <ul class="reasons">
+        {factors.map((f) => <li>{f}</li>)}
+      </ul>
+      <p class="cases__note">
+        Такой подход позволяет создавать сайты, которые можно использовать и развивать после
+        запуска, а не только демонстрировать как красивый дизайн.
+      </p>
     </div>
   </section>
 
-  <ContactCta />
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox__backdrop" data-lightbox-close></div>
-    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
-      <div class="lightbox__topbar">
-        <span class="lightbox__title" id="lightbox-title">Превью проекта</span>
-        <button type="button" class="lightbox__close" data-lightbox-close aria-label="Закрыть превью">✕</button>
-      </div>
-      <div class="lightbox__browser">
-        <div class="lightbox__browser-bar">
-          <span class="lightbox__dot lightbox__dot--red" aria-hidden="true"></span>
-          <span class="lightbox__dot lightbox__dot--yellow" aria-hidden="true"></span>
-          <span class="lightbox__dot lightbox__dot--green" aria-hidden="true"></span>
-          <span class="lightbox__url" id="lightbox-url">valoreagency.net</span>
-        </div>
-        <div class="lightbox__frame-wrap">
-          <iframe id="lightbox-frame" class="lightbox__frame" title="Превью проекта из портфолио" loading="lazy" />
-        </div>
-      </div>
-      <div class="lightbox__controls">
-        <button type="button" class="lightbox__nav" id="lightbox-prev" aria-label="Предыдущий экран">←</button>
-        <div class="lightbox__pagination" id="lightbox-pagination"></div>
-        <button type="button" class="lightbox__nav" id="lightbox-next" aria-label="Следующий экран">→</button>
-      </div>
-      <p class="lightbox__note">Это макет-пример из портфолио, а не сайт реального клиента.</p>
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Нужен сайт для вашего проекта?</h2>
+      <p>
+        Не обязательно искать в портфолио сайт точно из вашей отрасли. Структура и дизайн
+        нового проекта разрабатываются исходя из конкретной задачи, аудитории и необходимого
+        функционала.
+      </p>
+      <p>
+        Расскажите, какой сайт вы хотите создать. Обсудим задачу и предложим подходящий
+        вариант реализации. Подробнее об этапах работы — на странице
+        <a href="/uslugi/sozdanie-sajtov">создание сайтов</a>.
+      </p>
     </div>
-  </div>
+  </section>
+
+  <ContactCta
+    title="Обсудим ваш проект"
+    lead="Расскажите, какой сайт вам нужен и какую задачу он должен решать — ответим и предложим вариант реализации."
+  />
 
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
-  <script>
-    const modal = document.getElementById('lightbox');
-    const frame = document.getElementById('lightbox-frame') as HTMLIFrameElement;
-    const titleEl = document.getElementById('lightbox-title');
-    const urlEl = document.getElementById('lightbox-url');
-    const paginationEl = document.getElementById('lightbox-pagination');
-    const prevBtn = document.getElementById('lightbox-prev');
-    const nextBtn = document.getElementById('lightbox-next');
-
-    let sections: (HTMLElement | Element)[] = [];
-    let current = 0;
-
-    function renderDots() {
-      if (!paginationEl) return;
-      paginationEl.innerHTML = '';
-      const total = Math.max(sections.length, 1);
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'lightbox__pagination-dot' + (i === current ? ' is-active' : '');
-        paginationEl.appendChild(dot);
-      }
-    }
-
-    function goTo(index: number) {
-      if (!sections.length) return;
-      current = (index + sections.length) % sections.length;
-      const target = sections[current] as HTMLElement;
-      if (target && target.scrollIntoView) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      renderDots();
-    }
-
-    function collectSections() {
-      try {
-        const doc = frame.contentDocument;
-        if (!doc) return;
-        const found = Array.from(doc.querySelectorAll('section'));
-        sections = found.length ? found : [doc.body];
-        current = 0;
-        renderDots();
-      } catch (e) {
-        sections = [];
-      }
-    }
-
-    function openLightbox(slug: string, title: string) {
-      if (!modal) return;
-      if (titleEl) titleEl.textContent = title;
-      if (urlEl) urlEl.textContent = `valoreagency.net/mockups/${slug}.html`;
-      frame.src = `/mockups/${slug}.html`;
-      frame.onload = collectSections;
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!modal) return;
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      frame.src = 'about:blank';
-      sections = [];
-    }
-
-    document.querySelectorAll('[data-lightbox-open]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const slug = btn.getAttribute('data-slug') || '';
-        const title = btn.getAttribute('data-title') || 'Превью проекта';
-        openLightbox(slug, title);
-      });
-    });
-
-    document.querySelectorAll('[data-lightbox-close]').forEach((el) => {
-      el.addEventListener('click', closeLightbox);
-    });
-
-    prevBtn?.addEventListener('click', () => goTo(current - 1));
-    nextBtn?.addEventListener('click', () => goTo(current + 1));
-
-    document.addEventListener('keydown', (e) => {
-      if (!modal?.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') goTo(current + 1);
-      if (e.key === 'ArrowLeft') goTo(current - 1);
-    });
-  </script>
 </Layout>
+
+<style>
+  .cases {
+    display: grid;
+    gap: 24px;
+  }
+  .case {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+  .case__cover {
+    min-width: 0;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .case__kind {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-60);
+  }
+  .case__domain {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    word-break: break-word;
+    color: var(--ink);
+  }
+  .case__body {
+    min-width: 0;
+    padding: 28px;
+  }
+  .case__tag {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-60);
+    margin-bottom: 10px;
+  }
+  .case__title {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .case__lead {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .case__text {
+    font-size: 15px;
+    color: var(--ink-60);
+    margin-bottom: 20px;
+  }
+  .case__subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-60);
+    margin-bottom: 10px;
+  }
+  .case__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .case__list li {
+    font-size: 13px;
+    color: var(--ink-60);
+    background: var(--gray-soft);
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .case__btn {
+    display: inline-block;
+  }
+  .cases__note {
+    max-width: 720px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--ink-60);
+  }
+  .reasons {
+    max-width: 720px;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+  .reasons li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px 16px 44px;
+    font-size: 15px;
+    color: var(--ink-60);
+    position: relative;
+  }
+  .reasons li::before {
+    content: '✓';
+    position: absolute;
+    left: 18px;
+    color: var(--lime);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  @media (max-width: 860px) {
+    .case {
+      grid-template-columns: 1fr;
+    }
+    .case__cover {
+      padding: 24px;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .case__body {
+      padding: 24px;
+    }
+  }
+</style>
