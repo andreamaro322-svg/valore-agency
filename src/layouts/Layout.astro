@@ -23,7 +23,7 @@ const orgSchema = {
   },
   sameAs: [
     'https://t.me/Valoreagency',
-    'https://vk.ru/id1127659934',
+    'https://vk.com/valoreagency',
   ],
 };
 ---
@@ -38,6 +38,12 @@ const orgSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    <!-- Иконки. SVG для современных браузеров, ICO с 16/32/48 для старых
+         и для тех мест, где запрашивают именно /favicon.ico. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
