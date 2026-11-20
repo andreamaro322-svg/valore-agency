@@ -1,0 +1,484 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const title = 'Turnkey Website Development for Business | Valore Agency';
+const description =
+  'Turnkey website development for business: landing pages, multi-page, corporate and content websites. Design, development and SEO groundwork.';
+const canonical = 'https://valoreagency.net/en/services/web-development/';
+
+const TG = 'https://t.me/Valoreagency';
+
+const types = [
+  {
+    name: 'Landing page',
+    text: 'A single-page website to promote a specific service, product, specialist, event or ad campaign. The structure is built around one goal: introduce the offer, answer the visitor’s questions and lead them to the target action.',
+    forWhom: ['individual services', 'new product launches', 'experts and specialists', 'ad campaigns', 'events', 'special offers'],
+    cta: 'Discuss a landing page',
+    bg: 'var(--lime-soft)',
+  },
+  {
+    name: 'Multi-page website for a specialist or business',
+    text: 'A website with separate service pages, information about the company or specialist, contacts and additional sections. It fits when a single landing page is not enough and you need to present several lines of work in detail. The structure can grow over time with new services, articles and landing pages.',
+    forWhom: ['specialists', 'small and medium businesses', 'local companies', 'professional services', 'service businesses'],
+    cta: 'Discuss a project',
+    bg: 'var(--pink-soft)',
+  },
+  {
+    name: 'Corporate website',
+    text: 'A full company website with several business lines and a more complex structure. It can include service pages, company information, projects or case studies, a blog, careers and other sections. We design the architecture with future growth and SEO in mind.',
+    forWhom: [],
+    cta: 'Discuss a corporate website',
+    bg: 'var(--gray-soft)',
+  },
+  {
+    name: 'Content and media website',
+    text: 'Websites built for regularly publishing lots of material: news, articles, reviews and guides. In these projects we pay special attention to the category structure, navigation, inner pages and scalability.',
+    forWhom: ['online media', 'topical portals', 'corporate blogs', 'information projects', 'content websites'],
+    cta: 'Discuss a media project',
+    bg: 'var(--lime-soft)',
+  },
+];
+
+const steps = [
+  {
+    n: '01',
+    title: 'We discuss the task',
+    text: 'You tell us about your business, product and the result you want from the website. No detailed technical specification needed — just describe the task in your own words.',
+  },
+  {
+    n: '02',
+    title: 'We design the structure',
+    text: 'We define the pages, sections and key content blocks. If the website will be promoted through SEO, we take search demand and future growth into account.',
+  },
+  {
+    n: '03',
+    title: 'We create a prototype and design',
+    text: 'We work out the user journey, element layout and visual concept. The design reflects the project’s topic, audience and positioning.',
+  },
+  {
+    n: '04',
+    title: 'We build the website',
+    text: 'We turn the approved design into a working website, adapt pages for mobile devices and connect the required functionality.',
+  },
+  {
+    n: '05',
+    title: 'We check the technical side',
+    text: 'Before launch we check pages, forms, the mobile version and technical elements. Where needed, we set up metadata, sitemap.xml, robots.txt and structured data.',
+  },
+  {
+    n: '06',
+    title: 'We launch the project',
+    text: 'We run a final check and publish the website on your domain. After launch the project can keep growing: new pages, content, features and SEO.',
+  },
+];
+
+const scope = [
+  'task and competitor analysis',
+  'website structure design',
+  'page prototyping',
+  'UX/UI design',
+  'responsive layout',
+  'website development',
+  'contact form setup',
+  'web analytics setup',
+  'basic technical SEO groundwork',
+  'indexability setup',
+  'metadata',
+  'sitemap.xml and robots.txt',
+  'relevant structured data',
+  'image optimization',
+  'website publishing',
+  'ongoing technical support',
+];
+
+const advantages = [
+  {
+    icon: '🧱',
+    title: 'Structure first, design second',
+    text: 'We don’t start with a pretty picture. First we define the website’s goal, the structure it needs and the user scenarios, and only then move on to visuals.',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO can be built in from the start',
+    text: 'If organic search is an important channel for getting clients, SEO is taken into account already at the website design stage.',
+  },
+  {
+    icon: '🤝',
+    title: 'One team',
+    text: 'Structure, design, development and SEO are treated as parts of one project, not as separate unrelated tasks.',
+  },
+  {
+    icon: '🌱',
+    title: 'The website can grow after launch',
+    text: 'We build the architecture so the project can be extended with new pages, services, categories and content.',
+  },
+  {
+    icon: '📋',
+    title: 'A clear process',
+    text: 'Before development starts, we define the task, the required functionality and the project stages.',
+  },
+];
+
+const priceFactors = [
+  'website type',
+  'number of pages',
+  'structure complexity',
+  'amount of design work',
+  'required functionality',
+  'integrations',
+  'amount of content',
+  'additional technical tasks',
+];
+
+const faq = [
+  {
+    q: 'How long does it take to build a website?',
+    a: 'It depends on the scale of the project. A landing page can be done much faster than a large multi-page website or an information portal. We set the exact timeline once we understand the structure and required functionality.',
+  },
+  {
+    q: 'Do I need to prepare a technical specification?',
+    a: 'No. Just tell us what your business does, why you need a website and what result you want. Then we’ll help you choose the right format and structure for the project.',
+  },
+  {
+    q: 'Can I order a website with SEO from the start?',
+    a: 'Yes. If SEO is planned as one of your client acquisition channels, it’s better to account for it before development — this lets us plan the necessary pages and website architecture in advance.',
+  },
+  {
+    q: 'Can I order only design or only development?',
+    a: 'Yes. Joining at a specific stage of the project is discussed individually.',
+  },
+  {
+    q: 'Will the website work well on smartphones?',
+    a: 'Yes. During development we make sure the website looks good and is easy to use on smartphones, tablets and computers.',
+  },
+  {
+    q: 'Will I be able to update the website content myself?',
+    a: 'If editing content yourself is an important requirement, we take it into account when choosing the technology and building the project.',
+  },
+  {
+    q: 'Can you rebuild an existing website?',
+    a: 'Yes. First we study the current project and decide what to keep and what to rework. If the website already gets organic traffic, we handle existing URLs and other important SEO elements carefully during the migration.',
+  },
+  {
+    q: 'Can we keep working on the website after launch?',
+    a: 'Yes. If needed, we can add new pages and features and work on the technical side, content and SEO.',
+  },
+  {
+    q: 'How do I find out the price of my project?',
+    a: 'Message us and briefly describe the website you need. After discussing the task, we can estimate the scope of work, timeline and price.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Website development',
+  name: 'Turnkey website development for business',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  url: canonical,
+  description,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Website types',
+    itemListElement: types.map((t) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: t.name, description: t.text },
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/en/' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'Web development' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Service — Web development</p>
+      <h1>Turnkey website development for business</h1>
+      <p class="hero__lead">
+        We design and build websites that don’t just look good but do a job for your business:
+        present your services, bring in inquiries and lay the groundwork for further promotion.
+        Structure, design, development and technical SEO groundwork — all in one project.
+      </p>
+      <div class="hero__actions">
+        <a href={TG} target="_blank" rel="nofollow noopener" class="btn btn--dark">Discuss a project</a>
+        <a href="/en/portfolio/" class="btn btn--ghost">See our work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">A website should solve a business task</h2>
+      <p>
+        Good design is not enough. A visitor should quickly understand what the company does,
+        what it offers and what to do next. The website also has to work well on a smartphone,
+        load fast and let the business develop it after launch.
+      </p>
+      <p>
+        That’s why we don’t start by picking a template or button colors. First we dig into the
+        project’s goal, study the business and plan the structure of the future website. Only then
+        do we move on to the prototype, design and development.
+      </p>
+    </div>
+  </section>
+
+  <section id="types">
+    <div class="container">
+      <p class="eyebrow">— Formats</p>
+      <h2 class="section-title">What websites we build</h2>
+      <div class="types">
+        {
+          types.map((t) => (
+            <article class="type" style={`background:${t.bg}`}>
+              <h3 class="type__title">{t.name}</h3>
+              <p class="type__text">{t.text}</p>
+              {t.forWhom.length > 0 && (
+                <>
+                  <p class="type__subtitle">A good fit for</p>
+                  <ul class="type__list">
+                    {t.forWhom.map((f) => <li>{f}</li>)}
+                  </ul>
+                </>
+              )}
+              <a href={TG} target="_blank" rel="nofollow noopener" class="btn btn--ghost type__btn">
+                {t.cta}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">We plan for SEO before development</h2>
+      <p>
+        A common situation: a company builds a website first and brings in an SEO specialist only
+        after launch. The analysis then shows that promotion needs separate service pages, a
+        different section structure, navigation or URLs, or reworked content.
+      </p>
+      <p>
+        We suggest planning for SEO at the design stage. If organic search matters for the
+        project, before design starts we define which pages the website will need, how they should
+        link to each other and how the structure can be extended in the future.
+      </p>
+      <p>
+        This gives you a clearer, more scalable architecture from day one. Learn more on the
+        <a href="/en/services/seo-geo/">SEO and GEO</a> page.
+      </p>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <p class="eyebrow">— Process</p>
+      <h2 class="section-title">How website development works</h2>
+      <div class="steps steps--6">
+        {
+          steps.map((s) => (
+            <div class="step">
+              <span class="step__n">{s.n}</span>
+              <h3 class="step__title">{s.title}</h3>
+              <p class="step__text">{s.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="container">
+      <p class="eyebrow">— Scope of work</p>
+      <h2 class="section-title">What development can include</h2>
+      <p class="lead-note">The exact scope depends on the project. We can take care of:</p>
+      <ul class="chips">
+        {scope.map((s) => <li>{s}</li>)}
+      </ul>
+      <p class="lead-note">
+        Before work starts, we define which of these tasks your project actually needs.
+      </p>
+    </div>
+  </section>
+
+  <section id="why-us">
+    <div class="container">
+      <p class="eyebrow">— Why Valore Agency</p>
+      <h2 class="section-title">Our approach to development</h2>
+      <div class="services">
+        {
+          advantages.map((a) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{a.icon}</span>
+              <h3 class="service__title">{a.title}</h3>
+              <p class="service__text">{a.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">See our work</h2>
+      <p>
+        The best way to judge our approach is to look at websites that are already live. Our
+        portfolio shows real launched projects: from landing pages and specialist websites to
+        content portals.
+      </p>
+      <p>
+        <a href="/en/portfolio/" class="btn btn--dark">See our work</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="container">
+      <p class="eyebrow">— Price</p>
+      <h2 class="section-title">How the price of a website is formed</h2>
+      <p class="lead-note">The cost of development is calculated individually. It depends on:</p>
+      <ul class="chips">
+        {priceFactors.map((p) => <li>{p}</li>)}
+      </ul>
+      <p class="lead-note">
+        That’s why we don’t use one universal price for every project. First we briefly discuss
+        your task — then we can suggest the right format and estimate the price and timeline.
+      </p>
+      <p>
+        <a href={TG} target="_blank" rel="nofollow noopener" class="btn btn--dark">Discuss a project</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    lang="en"
+    title="Have a project or an idea?"
+    lead="Tell us what kind of website you need and what it should do. No long specification needed — a few sentences about your business or project idea are enough."
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .types {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .type {
+    border-radius: var(--radius);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .type__title {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .type__text {
+    font-size: 15px;
+    color: var(--ink-60);
+    margin-bottom: 18px;
+  }
+  .type__subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-60);
+    margin-bottom: 10px;
+  }
+  .type__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .type__list li {
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .type__btn {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 22px;
+  }
+  .chips li {
+    font-size: 14px;
+    color: var(--ink-60);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 14px;
+  }
+  .lead-note {
+    max-width: 720px;
+    font-size: 15px;
+    color: var(--ink-60);
+  }
+  .steps--6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 860px) {
+    .types,
+    .steps--6 {
+      grid-template-columns: 1fr;
+    }
+    .type {
+      padding: 24px;
+    }
+  }
+</style>

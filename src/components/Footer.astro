@@ -1,17 +1,8 @@
 ---
-const services = [
-  { href: '/uslugi/sozdanie-sajtov', label: 'Создание сайтов' },
-  { href: '/uslugi/audit-sajtov', label: 'Аудит сайтов' },
-  { href: '/uslugi/seo-geo-prodvizhenie', label: 'SEO и GEO продвижение' },
-  { href: '/uslugi/podderzhka-sajtov', label: 'Поддержка сайтов' },
-  { href: '/uslugi/linkbilding', label: 'Услуги линкбилдинга' },
-];
+import { ui, type Lang } from '../i18n';
 
-const company = [
-  { href: '/o-nas', label: 'О нас' },
-  { href: '/portfolio', label: 'Портфолио' },
-  { href: '/kontakty', label: 'Контакты' },
-];
+const { lang = 'ru' } = Astro.props as { lang?: Lang };
+const t = ui[lang];
 
 const year = new Date().getFullYear();
 ---
@@ -19,36 +10,36 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="container footer__grid">
     <div class="footer__brand">
-      <a href="/" class="logo">Valore<span>.</span></a>
-      <p>Digital-агентство полного цикла: сайты, продвижение в поиске и в нейросетях.</p>
+      <a href={t.home} class="logo">Valore<span>.</span></a>
+      <p>{t.footerTagline}</p>
     </div>
 
-    <nav aria-label="Услуги">
-      <h3 class="footer__title">Услуги</h3>
+    <nav aria-label={t.footerServicesTitle}>
+      <h3 class="footer__title">{t.footerServicesTitle}</h3>
       <ul>
-        {services.map((s) => <li><a href={s.href}>{s.label}</a></li>)}
+        {t.footerServices.map((s) => <li><a href={s.href}>{s.label}</a></li>)}
       </ul>
     </nav>
 
-    <nav aria-label="Компания">
-      <h3 class="footer__title">Компания</h3>
+    <nav aria-label={t.footerCompanyTitle}>
+      <h3 class="footer__title">{t.footerCompanyTitle}</h3>
       <ul>
-        {company.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+        {t.footerCompany.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
       </ul>
     </nav>
 
     <div class="footer__contacts">
-      <h3 class="footer__title">Контакты</h3>
+      <h3 class="footer__title">{t.footerContactsTitle}</h3>
       <ul>
         <li><a href="https://t.me/Valoreagency" rel="nofollow noopener" target="_blank">Telegram</a></li>
-        <li><a href="https://vk.com/valoreagency" rel="nofollow noopener" target="_blank">ВКонтакте</a></li>
+        <li><a href="https://vk.com/valoreagency" rel="nofollow noopener" target="_blank">{t.vk}</a></li>
       </ul>
     </div>
   </div>
 
   <div class="container footer__bottom">
     <span>© {year} Valore Agency</span>
-    <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+    <a href={t.privacy.href}>{t.privacy.label}</a>
   </div>
 </footer>
 

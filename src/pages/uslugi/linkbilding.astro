@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { rub } from '../../data/prices';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ContactCta from '../../components/ContactCta.astro';
 
-const title = 'Линкбилдинг — наращивание ссылочной массы от 15 000 ₽/мес | Valore Agency';
+const title = `Линкбилдинг — наращивание ссылочной массы от ${rub('linksStart')}/мес | Valore Agency`;
 const description =
   'Наращиваем качественную ссылочную массу сайта: белые методы, тематические площадки, крауд-маркетинг. Растим траст домена и позиции в поиске.';
 const canonical = 'https://valoreagency.net/uslugi/linkbilding/';
@@ -20,13 +21,13 @@ const includes = [
 const pricing = [
   {
     name: 'Старт',
-    price: 'от 15 000 ₽/мес',
+    price: `от ${rub('linksStart')}/мес`,
     text: 'Наращивание ссылочной массы для сайтов в невысококонкурентных нишах.',
     features: ['Гостевые публикации и каталоги', 'Крауд-маркетинг', 'Отчёт о размещениях', 'Мониторинг ссылочного профиля'],
   },
   {
     name: 'Рост',
-    price: 'от 30 000 ₽/мес',
+    price: `от ${rub('linksGrowth')}/мес`,
     text: 'Более активное наращивание ссылок для конкурентных ниш и городов-миллионников.',
     features: ['Всё из тарифа «Старт»', 'Больше размещений в месяц', 'Работа с более сильными площадками', 'Ежемесячный анализ конкурентов'],
     accent: true,
@@ -36,7 +37,7 @@ const pricing = [
 const faq = [
   {
     q: 'Сколько стоит линкбилдинг?',
-    a: 'Базовый тариф — от 15 000 ₽ в месяц, для конкурентных ниш — от 30 000 ₽ в месяц. Стоимость зависит от количества и качества нужных размещений.',
+    a: `Базовый тариф — от ${rub('linksStart')} в месяц, для конкурентных ниш — от ${rub('linksGrowth')} в месяц. Стоимость зависит от количества и качества нужных размещений.`,
   },
   {
     q: 'Это безопасно для сайта? Не будет ли санкций от поисковиков?',
@@ -108,7 +109,7 @@ const faqSchema = {
         <a href="#ceny" class="btn btn--ghost">Смотреть тарифы</a>
       </div>
       <div class="hero__meta">
-        <div><strong>от 15 000 ₽</strong>в месяц</div>
+        <div><strong>от {rub('linksStart')}</strong>в месяц</div>
         <div><strong>Белые методы</strong>без риска санкций</div>
         <div><strong>Отчётность</strong>ежемесячно</div>
       </div>

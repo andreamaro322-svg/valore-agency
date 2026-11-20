@@ -1,0 +1,205 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+import { prices, usd } from '../../../data/prices';
+
+const title = `Website Audit — Find Errors and Get SEO Recommendations from ${usd('audit')} | Valore Agency`;
+const description = `We run a technical and SEO audit of your website: we find errors, show growth opportunities and give you a step-by-step fix plan. From ${usd('audit')}, report in 3–5 days.`;
+const canonical = 'https://valoreagency.net/en/services/website-audit/';
+
+const findings = [
+  { icon: '🐢', title: 'Slow loading', text: 'We test site speed on mobile and desktop and find exactly what slows it down.' },
+  { icon: '🔗', title: 'Broken links and 404s', text: 'We find broken links and pages that lose traffic and hurt your reputation with search engines.' },
+  { icon: '🧩', title: 'Missing structured data', text: 'We check schema.org markup — without it, a site shows up worse in search and does not make it into AI answers.' },
+  { icon: '📑', title: 'Duplicate meta tags and content', text: 'We look for identical titles, descriptions and duplicate pages that dilute your rankings.' },
+  { icon: '📱', title: 'Responsive layout issues', text: 'We check how the site looks on phones and tablets — this affects search rankings.' },
+  { icon: '🗂️', title: 'Indexing errors', text: 'We review robots.txt, sitemap.xml and your Google Search Console settings.' },
+];
+
+const pricing = [
+  {
+    name: 'Website audit',
+    price: `from ${usd('audit')}`,
+    text: 'A full check of the website for technical and SEO errors, with a ready-made fix plan.',
+    features: [
+      'Technical audit (speed, layout, indexing errors)',
+      'SEO audit (meta tags, structure, structured data)',
+      'Mobile version check',
+      'Prioritized report with recommendations',
+      'Turnaround: 3–5 business days',
+    ],
+  },
+];
+
+const faq = [
+  {
+    q: 'How much does a website audit cost?',
+    a: `A basic audit starts at ${usd('audit')}. The final price depends on the number of pages and the depth of the check — for example, auditing an online store with a catalog costs more than auditing a landing page.`,
+  },
+  {
+    q: 'What does a website audit include?',
+    a: 'We check the technical side (loading speed, indexing errors, responsiveness, broken links) and the SEO side (meta tags, headings, schema.org markup, content quality). You get a report with prioritized fixes.',
+  },
+  {
+    q: 'Do you fix the errors you find?',
+    a: 'The audit itself is a report with recommendations. Fixes can be ordered separately or as part of our website support service — then we make the changes for you.',
+  },
+  {
+    q: 'How long does an audit take?',
+    a: 'Usually 3 to 5 business days, depending on the size of the website and the number of pages.',
+  },
+  {
+    q: 'In what format will I get the results?',
+    a: 'You get a structured report: a list of issues found, their impact on rankings and traffic, and specific steps to fix them — prioritized from critical to minor.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Website audit',
+  name: 'Website audit',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: String(prices.audit.usd),
+    priceCurrency: 'USD',
+    description: 'Technical and SEO website audit with a report and recommendations',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/en/' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'Website audit' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Service — Website audit</p>
+      <h1>We find what keeps your website from ranking and getting leads</h1>
+      <p class="hero__lead">
+        We check your website for technical and SEO errors, show growth opportunities and give
+        you a clear fix plan — no fluff, with specific priorities.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--dark">Order an audit</a>
+        <a href="#pricing" class="btn btn--ghost">See the price</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>from {usd('audit')}</strong>price</div>
+        <div><strong>3–5 days</strong>turnaround</div>
+        <div><strong>Report + plan</strong>what you get</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">What we check in an audit</h2>
+      <p>
+        A <strong>website audit</strong> is a diagnosis that shows why a site ranks poorly, loads
+        slowly or loses leads. We check the site in two areas: technical and SEO. The technical
+        part covers loading speed, correct layout, indexing errors, broken links and security
+        settings. The SEO part covers heading structure, meta tags, content quality, internal
+        linking and schema.org structured data.
+      </p>
+      <p>
+        As a result, you get more than a list of problems — you get a prioritized plan: what to
+        fix first to see results sooner, and what can wait. This saves budget: you don't spend
+        money on improvements that don't affect rankings and traffic.
+      </p>
+      <h3>Who an audit is for</h3>
+      <ul>
+        <li>You have a website, but it brings no leads or traffic</li>
+        <li>Your search rankings have dropped or are not growing</li>
+        <li>Another contractor built the site, and you need an independent quality review</li>
+        <li>You are planning a redesign and want to know what is worth keeping</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="common-issues">
+    <div class="container">
+      <p class="eyebrow">— What we find most often</p>
+      <h2 class="section-title">Typical website errors</h2>
+      <div class="services">
+        {
+          findings.map((f) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{f.icon}</span>
+              <h3 class="service__title">{f.title}</h3>
+              <p class="service__text">{f.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <p class="eyebrow">— Price</p>
+      <h2 class="section-title">Website audit price</h2>
+      <div class="pricing pricing--2col" style="max-width:560px">
+        {
+          pricing.map((p) => (
+            <div class="price-card price-card--accent">
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#contact" class="btn btn--ghost price-card__btn">Order an audit</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        The final price depends on the number of pages and the type of website (landing page,
+        catalog, online store). We give you the exact price after a short consultation.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">Website audit FAQ</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

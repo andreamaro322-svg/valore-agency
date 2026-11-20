@@ -9,10 +9,10 @@
 ## Услуги
 
 - Создание сайтов под ключ: /uslugi/sozdanie-sajtov — Landing Page, многостраничные сайты для специалистов и бизнеса, корпоративные сайты, контентные и медиа-проекты. Стоимость рассчитывается индивидуально: зависит от типа сайта, количества страниц, сложности структуры, объёма дизайна и функционала.
-- SEO и GEO продвижение: /uslugi/seo-geo-prodvizhenie — от 50 000 ₽ в месяц. Включает SEO-оптимизацию под Яндекс и Google и GEO-оптимизацию для видимости в ChatGPT, Алисе AI, Gemini.
-- Аудит сайтов: /uslugi/audit-sajtov — от 10 000 ₽. Технический и SEO-аудит с отчётом и планом исправлений.
-- Поддержка сайтов: /uslugi/podderzhka-sajtov — от 5 000 ₽ в месяц. Мониторинг, обновления, резервное копирование, правки.
-- Линкбилдинг: /uslugi/linkbilding — от 15 000 ₽ в месяц. Наращивание ссылочной массы белыми методами.
+- SEO и GEO продвижение: /uslugi/seo-geo-prodvizhenie — от 100 000 ₽ в месяц. Включает SEO-оптимизацию под Яндекс и Google и GEO-оптимизацию для видимости в ChatGPT, Алисе AI, Gemini.
+- Аудит сайтов: /uslugi/audit-sajtov — от 20 000 ₽. Технический и SEO-аудит с отчётом и планом исправлений.
+- Поддержка сайтов: /uslugi/podderzhka-sajtov — от 30 000 ₽ в месяц. Мониторинг, обновления, резервное копирование, правки.
+- Линкбилдинг: /uslugi/linkbilding — от 30 000 ₽ в месяц. Наращивание ссылочной массы белыми методами.
 - Разработка логотипов — логотип и базовые визуальные решения для новых и существующих проектов. Отдельной страницы под услугу нет, обсуждается вместе с проектом.
 
 ## Проекты
@@ -33,3 +33,14 @@
 Связь через Telegram (https://t.me/Valoreagency) и ВКонтакте
 (https://vk.com/valoreagency) — ссылки указаны в шапке и подвале сайта.
 География работы — вся Россия, формат работы удалённый.
+
+## English version
+
+The site has an English version at https://valoreagency.net/en/ with prices in US dollars.
+
+- Web development: /en/services/web-development/ — landing pages, multi-page business websites, corporate and content websites. Price is quoted individually.
+- SEO and GEO: /en/services/seo-geo/ — from $1,200 per month. Search engine optimization for Google plus visibility in AI answers (ChatGPT, Gemini).
+- Website audit: /en/services/website-audit/ — from $250. Technical and SEO audit with a report and a fix plan.
+- Website support: /en/services/website-support/ — from $350 per month. Monitoring, updates, backups, edits.
+- Link building: /en/services/link-building/ — from $350 per month. White-hat link acquisition.
+- Portfolio: /en/portfolio/ · About: /en/about/ · Contact: /en/contact/

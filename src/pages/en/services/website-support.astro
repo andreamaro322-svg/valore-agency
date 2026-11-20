@@ -1,0 +1,208 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+import { prices, usd } from '../../../data/prices';
+
+const title = `Website Support and Maintenance from ${usd('supportBasic')}/mo | Valore Agency`;
+const description = `Website technical support and maintenance: updates, monitoring, backups, improvements and edits. Plans from ${usd('supportBasic')} per month.`;
+const canonical = 'https://valoreagency.net/en/services/website-support/';
+
+const includes = [
+  { icon: '🛰️', title: 'Uptime monitoring', text: 'We make sure your website stays online 24/7 and respond to outages.' },
+  { icon: '🔄', title: 'Updates and security', text: 'We update components and patch vulnerabilities so your site doesn’t get hacked.' },
+  { icon: '💾', title: 'Backups', text: 'We make regular backups — if anything goes wrong, we roll back quickly.' },
+  { icon: '✏️', title: 'Edits and improvements', text: 'We change texts and prices and add pages and blocks on request.' },
+  { icon: '🐞', title: 'Bug fixes', text: 'We quickly fix whatever breaks — from layout to lead forms.' },
+  { icon: '📈', title: 'Work reports', text: 'Every month we send a report on what was done on your website.' },
+];
+
+const pricing = [
+  {
+    name: 'Basic',
+    key: 'supportBasic' as const,
+    price: `from ${usd('supportBasic')}/mo`,
+    text: 'Monitoring, updates and backups — your website is always online.',
+    features: ['24/7 uptime monitoring', 'Updates and security', 'Backups', 'Up to 2 minor edits per month'],
+  },
+  {
+    name: 'Standard',
+    key: 'supportStandard' as const,
+    price: `from ${usd('supportStandard')}/mo`,
+    text: 'Everything in “Basic” plus regular improvements and content edits.',
+    features: ['Everything in “Basic”', 'Up to 5 edits/improvements per month', 'Text and price updates', 'Priority support'],
+    accent: true,
+  },
+  {
+    name: 'Premium',
+    key: 'supportPremium' as const,
+    price: `from ${usd('supportPremium')}/mo`,
+    text: 'Extended support for websites that change often.',
+    features: ['Everything in “Standard”', 'Unlimited minor edits', 'New pages and blocks', 'Dedicated manager'],
+  },
+];
+
+const faq = [
+  {
+    q: 'How much does website support cost?',
+    a: `The Basic plan starts at ${usd('supportBasic')} per month, Standard at ${usd('supportStandard')}, and Premium with extended support at ${usd('supportPremium')} per month. The right plan depends on how often your website needs edits.`,
+  },
+  {
+    q: 'What does website support include?',
+    a: 'Uptime monitoring, updates and security, backups, bug fixes and edits — the number of edits depends on the plan.',
+  },
+  {
+    q: 'Do you support websites built by someone else?',
+    a: 'Yes, as long as we can get access to the code and hosting. Before we start, we run a short technical audit to understand the state of the website.',
+  },
+  {
+    q: 'How fast do you respond to problems?',
+    a: 'On the Standard and Premium plans you get priority support — we respond within one business day. We try to fix critical failures (website down) first, regardless of the plan.',
+  },
+  {
+    q: 'Can I sign up for support if another contractor built my website?',
+    a: 'Yes, this is a common request. You can start at any time — just give us access to the hosting and the website admin panel.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Website technical support',
+  name: 'Website support',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: String(prices[p.key].usd),
+    priceCurrency: 'USD',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/en/' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'Website support' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Service — Website support</p>
+      <h1>Your website always works, stays updated and doesn’t break</h1>
+      <p class="hero__lead">
+        We take over technical maintenance: updates, monitoring, backups and edits — you run your
+        business, not your website settings.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--dark">Get support</a>
+        <a href="#pricing" class="btn btn--ghost">See plans</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>from {usd('supportBasic')}</strong>per month</div>
+        <div><strong>3 plans</strong>for different volumes of edits</div>
+        <div><strong>24/7</strong>uptime monitoring</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Why your website needs support</h2>
+      <p>
+        After launch, a website needs maintenance: security updates, uptime monitoring, backups
+        and quick edits. Without it, the site gradually gets slower, loses search rankings or
+        becomes vulnerable to hacking.
+      </p>
+      <p>
+        We take these tasks off your hands — from monitoring and backups to editing texts, prices
+        and site structure. You just send a request, we make the changes and report on the work
+        done.
+      </p>
+    </div>
+  </section>
+
+  <section id="whats-included">
+    <div class="container">
+      <p class="eyebrow">— What’s included</p>
+      <h2 class="section-title">Tasks we take on</h2>
+      <div class="services">
+        {
+          includes.map((i) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <p class="eyebrow">— Plans</p>
+      <h2 class="section-title">Website support pricing</h2>
+      <div class="pricing">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">Most popular</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#contact" class="btn btn--ghost price-card__btn">Sign up</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        We’ll pick a plan for your website in a free consultation, based on its size and how
+        often it changes.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">Website support FAQ</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

@@ -1,0 +1,322 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'About Valore Agency — Web Development and SEO';
+const description =
+  'Valore Agency is a digital agency: web development, SEO and GEO, audits, support and link building. Our approach and how we work.';
+const canonical = 'https://valoreagency.net/en/about/';
+
+const TG = 'https://t.me/Valoreagency';
+
+const services = [
+  {
+    icon: '🚀',
+    title: 'Web development',
+    text: 'We design landing pages, multi-page websites for businesses and specialists, corporate and content projects. We start from the website’s structure and goal, not from a ready-made template.',
+    href: '/en/services/web-development/',
+    more: 'More about web development',
+    bg: 'var(--lime-soft)',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO and GEO',
+    text: 'We work on your website’s visibility in classic search and consider how content is perceived by modern search and AI systems. We handle technical optimization, structure, keywords and content.',
+    href: '/en/services/seo-geo/',
+    more: 'More about SEO and GEO',
+    bg: 'var(--pink-soft)',
+  },
+  {
+    icon: '🩺',
+    title: 'Website audit',
+    text: 'We analyze the website’s technical state, structure, SEO and other issues that may hold it back. As a result, you get a specific list of problems and recommendations for fixing them.',
+    href: '/en/services/website-audit/',
+    more: 'More about audits',
+    bg: 'var(--gray-soft)',
+  },
+  {
+    icon: '🛠️',
+    title: 'Website support',
+    text: 'We help maintain live projects: fix bugs, update pages, add functionality and solve technical tasks.',
+    href: '/en/services/website-support/',
+    more: 'More about support',
+    bg: 'var(--lime-soft)',
+  },
+  {
+    icon: '🔗',
+    title: 'Link building',
+    text: 'We handle off-page promotion and work with the project’s backlink profile. We choose websites based on topic, quality and the goals of the specific project.',
+    href: '/en/services/link-building/',
+    more: 'More about link building',
+    bg: 'var(--pink-soft)',
+  },
+  {
+    icon: '✳️',
+    title: 'Logo design',
+    text: 'We create logos and basic visual identity for new and existing projects. There is no separate page for this service — tell us about your task, and we’ll discuss it together with the rest of the project.',
+    href: null,
+    more: null,
+    bg: 'var(--gray-soft)',
+  },
+];
+
+const principles = [
+  {
+    title: 'The task first, the tools second',
+    text: 'We don’t offer a service just because it’s on our list. First we try to understand what the project needs: a new website, a rework of the existing one, SEO, an audit or a specific technical improvement.',
+  },
+  {
+    title: 'Structure matters more than a pretty picture',
+    text: 'Design is important, but on its own it doesn’t solve a business task. When building a website, we first plan the pages, navigation, user journey and target actions, and then move on to visuals.',
+  },
+  {
+    title: 'SEO is best planned early',
+    text: 'If the website will be promoted through organic search, it’s better to plan the structure for SEO before development. This reduces the chance that the site will need serious rebuilding after launch.',
+  },
+  {
+    title: 'We don’t overcomplicate',
+    text: 'Not every project needs a complex website, dozens of integrations or a big set of services. If a task can be solved more simply, we prefer the clearer, more practical solution.',
+  },
+  {
+    title: 'We discuss the scope openly',
+    text: 'Before the project starts, we define the main task, the scope of work and the expected result. Price and timeline depend on the specific project and are discussed once the task is clear.',
+  },
+  {
+    title: 'We think about growth after launch',
+    text: 'A website rarely ends at publication. Over time, new services, pages, articles, integrations and promotion tasks appear. So we create a structure that can grow without rebuilding the whole project.',
+  },
+];
+
+const steps = [
+  { n: '01', title: 'We understand the task', text: 'You tell us about the project and the result you want. No detailed technical specification is needed for the first conversation.' },
+  { n: '02', title: 'We propose a solution', text: 'We define what work is really needed and which approach will work best.' },
+  { n: '03', title: 'We agree on the scope', text: 'Before starting, we discuss the tasks, price and timeline.' },
+  { n: '04', title: 'We deliver the project', text: 'We work to the agreed plan and stay in touch throughout.' },
+  { n: '05', title: 'We keep growing it', text: 'After the main work is done, we can continue with support, SEO and further development of the website. You are not obliged to stay with us after launch.' },
+];
+
+const faq = [
+  {
+    q: 'What kind of projects do you work with?',
+    a: 'We work both with new projects that are just launching and with existing websites. It can be building a new website, SEO, an audit, a technical improvement or a single task.',
+  },
+  {
+    q: 'Do I have to order several services at once?',
+    a: 'No. You can come to us for one specific service — for example, only an audit, a website, SEO or technical support. If the project needs end-to-end work, we’ll suggest the right option after discussing the task.',
+  },
+  {
+    q: 'Do I need to prepare a technical specification before contacting you?',
+    a: 'No. At first it’s enough to tell us in your own words what you have now and what result you want. If the project needs a detailed specification, it can be written after we talk.',
+  },
+  {
+    q: 'How is the price determined?',
+    a: 'The price is calculated individually and depends on the task, the scope of work and the complexity of the project. First we clarify the details, then we can estimate the price and timeline.',
+  },
+  {
+    q: 'Can I come to you with an existing website?',
+    a: 'Yes. You don’t have to build a new website from scratch. We can analyze your existing project, run an audit, fix specific issues, handle SEO or further development of the website.',
+  },
+  {
+    q: 'Do you only do SEO and web development?',
+    a: 'These are our main areas, but not the only ones. We also do audits, website support, link building and logo design.',
+  },
+  {
+    q: 'Can I keep working with you after the website is built?',
+    a: 'Yes. After launch we can continue with SEO, technical support, structure development and other tasks. Ongoing work is not mandatory, though.',
+  },
+];
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: canonical,
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Valore Agency',
+    url: 'https://valoreagency.net/',
+    description:
+      'Digital agency: web development, SEO and GEO, website audits, website support, link building and logo design.',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Home', href: '/en/' }, { label: 'About' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">About us</p>
+      <h1>Valore Agency — websites and promotion in one system</h1>
+      <p class="hero__lead">
+        We build and grow digital projects: we design websites and handle SEO, audits, support
+        and other tasks a business needs to grow online. Our main idea is simple: a website, its
+        structure, technical side, content and promotion should work together, not exist as
+        separate unrelated tasks.
+      </p>
+      <div class="hero__actions">
+        <a href={TG} target="_blank" rel="nofollow noopener" class="btn btn--dark">Discuss a project</a>
+        <a href="/en/portfolio/" class="btn btn--ghost">See our work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">About Valore Agency</h2>
+      <p>
+        <strong>Valore Agency</strong> is a digital agency that combines web development and
+        search engine promotion. We can build a new project from scratch, join the development of
+        an existing website or solve a single task: run an audit, improve the technical side,
+        handle SEO, support or link building.
+      </p>
+      <p>
+        We like a systematic approach. We try to first understand what task a website or a
+        specific service should solve, and only then choose the tools.
+      </p>
+      <p>
+        When we build a new website and SEO will be an important client acquisition channel, we
+        take it into account while designing the structure. When we work with an existing project,
+        we first study its current state and only then suggest changes.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <p class="eyebrow">— What we do</p>
+      <h2 class="section-title">Our services</h2>
+      <div class="services">
+        {
+          services.map((s) => (
+            <div class="service" style={`background:${s.bg}`}>
+              <span class="service__icon" aria-hidden="true">{s.icon}</span>
+              <h3 class="service__title">{s.title}</h3>
+              <p class="service__text">{s.text}</p>
+              {s.href && (
+                <a href={s.href} class="service__more">
+                  {s.more} →
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="container">
+      <p class="eyebrow">— How we work</p>
+      <h2 class="section-title">Our principles</h2>
+      <div class="services services--2col">
+        {
+          principles.map((p) => (
+            <div class="principle">
+              <h3 class="service__title">{p.title}</h3>
+              <p class="service__text">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <p class="eyebrow">— Process</p>
+      <h2 class="section-title">How we organize the work</h2>
+      <div class="steps steps--5">
+        {
+          steps.map((s) => (
+            <div class="step">
+              <span class="step__n">{s.n}</span>
+              <h3 class="step__title">{s.title}</h3>
+              <p class="step__text">{s.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">See our work</h2>
+      <p>
+        Our portfolio shows real launched websites that you can open and check for yourself.
+        Right now it includes a landing page, a multi-page specialist website and a content
+        information project. We’ll add new projects as they are completed.
+      </p>
+      <p>
+        <a href="/en/portfolio/" class="btn btn--dark">See our work</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">Valore Agency FAQ</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    lang="en"
+    title="Let’s discuss your task"
+    lead="Whether you need a new website, growth for an existing project, SEO or a specific digital task — message us. A short description of what needs to be done is enough."
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .principle {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .steps--5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 1024px) {
+    .steps--5 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .steps--5 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

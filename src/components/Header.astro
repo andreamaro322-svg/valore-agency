@@ -1,26 +1,50 @@
 ---
-const navLinks = [
-  { href: '/uslugi/sozdanie-sajtov', label: 'Создание сайтов' },
-  { href: '/uslugi/seo-geo-prodvizhenie', label: 'SEO / GEO' },
-  { href: '/uslugi/audit-sajtov', label: 'Аудит' },
-  { href: '/portfolio', label: 'Портфолио' },
-  { href: '/o-nas', label: 'О нас' },
-];
+import { alternates, ui, type Lang } from '../i18n';
+
+const { lang = 'ru' } = Astro.props as { lang?: Lang };
+const t = ui[lang];
+
+// Переключатель ведёт на ту же страницу на другом языке; если пары нет —
+// на главную другого языка.
+const other: Lang = lang === 'ru' ? 'en' : 'ru';
+const switchHref = alternates(Astro.url.pathname)?.[other] ?? ui[other].home;
 ---
 
 <header class="header">
   <div class="container header__inner">
-    <a href="/" class="logo" aria-label="Valore Agency — на главную">
+    <a href={t.home} class="logo" aria-label={t.logoLabel}>
       Valore<span>.</span>
     </a>
 
-    <nav class="nav" aria-label="Основная навигация">
-      {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+    <nav class="nav" aria-label={t.navLabel}>
+      {t.nav.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>
 
-    <a href="#zayavka" class="btn btn--lime header__cta">Обсудить проект</a>
+    <a
+      href={switchHref}
+      class="lang-switch"
+      hreflang={other}
+      lang={other}
+      aria-label={t.switchLabel}
+      data-lang-switch={other}
+    >
+      {t.switchText}
+    </a>
+
+    <a href={`#${t.contactId}`} class="btn btn--lime header__cta">{t.headerCta}</a>
   </div>
 </header>
+
+<script>
+  // Ручной выбор языка запоминается на год. Edge Function на главной
+  // (netlify/edge-functions/lang-redirect.ts) видит cookie и больше не
+  // перенаправляет человека по IP и языку браузера.
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((link) => {
+    link.addEventListener('click', () => {
+      document.cookie = `lang=${link.dataset.langSwitch}; path=/; max-age=31536000; samesite=lax`;
+    });
+  });
+</script>
 
 <style>
   .header {
@@ -58,8 +82,23 @@ const navLinks = [
   .nav a:hover {
     color: var(--ink);
   }
-  .header__cta {
+  .lang-switch {
     margin-left: auto;
+    margin-right: -12px;
+    padding: 7px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-60);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .lang-switch:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .header__cta {
     padding: 9px 16px;
     font-size: 13px;
   }
@@ -67,9 +106,6 @@ const navLinks = [
   @media (max-width: 900px) {
     .nav {
       display: none;
-    }
-    .header__cta {
-      margin-left: auto;
     }
   }
 </style>

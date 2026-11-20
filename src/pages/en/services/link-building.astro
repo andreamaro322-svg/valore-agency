@@ -1,0 +1,204 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+import { prices, usd } from '../../../data/prices';
+
+const title = `Link Building Services from ${usd('linksStart')}/mo | Valore Agency`;
+const description =
+  'We build a quality backlink profile for your website: white-hat methods, relevant websites, community outreach. We grow domain authority and search rankings.';
+const canonical = 'https://valoreagency.net/en/services/link-building/';
+
+const includes = [
+  { icon: '📰', title: 'Guest posts', text: 'We publish articles with links on relevant websites and blogs.' },
+  { icon: '🗂️', title: 'Directory listings', text: 'We add your website to quality business directories and aggregators.' },
+  { icon: '💬', title: 'Community outreach', text: 'We leave helpful mentions with links on forums and in topical discussions.' },
+  { icon: '🤝', title: 'Partner links', text: 'We arrange placements with relevant and trusted websites.' },
+  { icon: '🛡️', title: 'White-hat only', text: 'No spammy link exchanges or manipulation — this protects your site from search engine penalties.' },
+  { icon: '📊', title: 'Backlink profile monitoring', text: 'We track the quality and number of links and remove toxic ones in time.' },
+];
+
+const pricing = [
+  {
+    name: 'Start',
+    key: 'linksStart' as const,
+    price: `from ${usd('linksStart')}/mo`,
+    text: 'Backlink building for websites in low-competition niches.',
+    features: ['Guest posts and directories', 'Community outreach', 'Placement report', 'Backlink profile monitoring'],
+  },
+  {
+    name: 'Growth',
+    key: 'linksGrowth' as const,
+    price: `from ${usd('linksGrowth')}/mo`,
+    text: 'More active link building for competitive niches and large cities.',
+    features: ['Everything in “Start”', 'More placements per month', 'Stronger websites', 'Monthly competitor analysis'],
+    accent: true,
+  },
+];
+
+const faq = [
+  {
+    q: 'How much does link building cost?',
+    a: `The basic plan starts at ${usd('linksStart')} per month; for competitive niches, from ${usd('linksGrowth')} per month. The price depends on the number and quality of placements you need.`,
+  },
+  {
+    q: 'Is it safe for my website? Will search engines penalize it?',
+    a: 'We use only white-hat methods — guest posts on relevant websites, quality directories and natural community outreach. We don’t use spammy link exchanges or manipulation, so the risk of penalties is minimal.',
+  },
+  {
+    q: 'What is link building and why do I need it?',
+    a: 'Link building means getting links to your website from other websites. Search engines take the number and quality of these links into account when ranking — the higher your domain authority, the easier it is to rank for competitive queries.',
+  },
+  {
+    q: 'How soon will I see results?',
+    a: 'Domain authority grows gradually; the first changes usually show after 2–3 months of regular work.',
+  },
+  {
+    q: 'Can I order link building without SEO?',
+    a: 'Yes, but for maximum effect we recommend combining it with our SEO service — rankings grow faster that way.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Link building',
+  name: 'Link building',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  description,
+  offers: pricing.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: String(prices[p.key].usd),
+    priceCurrency: 'USD',
+    description: p.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/en/' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'Link building' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Service — Link building</p>
+      <h1>Quality backlinks that move your search rankings</h1>
+      <p class="hero__lead">
+        We grow your domain authority with white-hat methods — no spammy link exchanges or
+        manipulation, only relevant websites and natural mentions.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--dark">Discuss a project</a>
+        <a href="#pricing" class="btn btn--ghost">See plans</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>from {usd('linksStart')}</strong>per month</div>
+        <div><strong>White-hat</strong>no penalty risk</div>
+        <div><strong>Reports</strong>every month</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Why your website needs backlinks</h2>
+      <p>
+        Search engines evaluate not only the website itself but also what other websites think
+        of it. Links from authoritative, relevant websites raise domain authority — and, all else
+        being equal, a website with a quality backlink profile outranks competitors for tough
+        commercial queries.
+      </p>
+      <p>
+        We work only with white-hat methods: we publish articles on relevant websites, arrange
+        partner links, add your site to trusted directories and carefully use community outreach.
+        We don’t use spammy link exchanges or mass automated link generation — they can lead to
+        penalties and ranking drops.
+      </p>
+    </div>
+  </section>
+
+  <section id="whats-included">
+    <div class="container">
+      <p class="eyebrow">— What’s included</p>
+      <h2 class="section-title">How we build links</h2>
+      <div class="services">
+        {
+          includes.map((i) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <p class="eyebrow">— Plans</p>
+      <h2 class="section-title">Link building pricing</h2>
+      <div class="pricing pricing--2col">
+        {
+          pricing.map((p) => (
+            <div class={`price-card ${p.accent ? 'price-card--accent' : ''}`}>
+              {p.accent && <span class="price-card__badge">For competitive niches</span>}
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#contact" class="btn btn--ghost price-card__btn">Discuss a project</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        We calculate the exact placement plan and budget individually after analyzing your niche
+        and competitors.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">Link building FAQ</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

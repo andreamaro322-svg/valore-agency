@@ -1,0 +1,423 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Our Work — Website Development Portfolio | Valore Agency';
+const description =
+  'Real Valore Agency projects: a landing page, a multi-page website and an information portal. Examples of design, development and SEO structure.';
+const canonical = 'https://valoreagency.net/en/portfolio/';
+
+const works = [
+  {
+    name: 'GameDaily',
+    domain: 'gamedaily.ru',
+    shot: '/portfolio/gamedaily.jpg',
+    url: 'https://gamedaily.ru/',
+    tag: 'Media website · Development · SEO · Content architecture',
+    heading: 'Information portal about the gaming industry',
+    lead: 'GameDaily is a content project about video games and the gaming industry: news, articles on new games, guides and esports. The website is in Russian.',
+    text: 'The main goal was a scalable architecture that can handle a large number of publications and gradually add new topic areas.',
+    done: [
+      'home page with a publication feed',
+      'topic categories',
+      'gaming news',
+      'articles on new games',
+      'guides',
+      'esports sections',
+      'inner page structure',
+      'site search',
+      'navigation between publications',
+      'architecture for future growth',
+      'mobile adaptation',
+      'SEO structure for a content project',
+    ],
+    accent: 'var(--pink-soft)',
+  },
+  {
+    name: 'Osnovy',
+    domain: 'kasparova-osnovi.ru',
+    shot: '/portfolio/kasparova.jpg',
+    url: 'https://kasparova-osnovi.ru/',
+    tag: 'Landing page · UX/UI · Development',
+    heading: 'Landing page for a psychology workshop',
+    lead: 'A single-page website for an author’s psychology workshop. The website is in Russian.',
+    text: 'The goal was to present the specialist and the program, explain the workshop format in detail and lead the visitor step by step to sign up. Information unfolds gradually: from the first introduction to the product to the program, reviews, price and answers to questions.',
+    done: [
+      'landing page structure',
+      'hero section with the main offer',
+      'specialist introduction',
+      'workshop description',
+      'program',
+      'benefit blocks',
+      'reviews',
+      'participation details',
+      'FAQ',
+      'several paths to the target action',
+      'mobile adaptation',
+    ],
+    accent: 'var(--lime-soft)',
+  },
+  {
+    name: 'Darya Antonova',
+    domain: 'psychologistdarya.online',
+    shot: '/portfolio/darya.jpg',
+    url: 'https://psychologistdarya.online/',
+    tag: 'Multi-page website · UX/UI · Development · SEO',
+    heading: 'Website for a private psychologist',
+    lead: 'A multi-page specialist website that presents a psychologist’s services and grows the project through organic search and useful content. The website is in Russian.',
+    text: 'Unlike a single-page landing page, this is a full structure with separate areas of practice, information about the specialist and a blog. This format makes it possible to add new service pages and articles gradually without rebuilding the whole project.',
+    done: [
+      'home page',
+      'specialist information',
+      'service structure',
+      'separate areas of practice',
+      'blog',
+      'informational articles',
+      'contact section',
+      'convenient ways to get in touch',
+      'mobile adaptation',
+      'structure for future SEO growth',
+    ],
+    accent: 'var(--gray-soft)',
+  },
+];
+
+const factors = [
+  {
+    title: 'Project goal',
+    text: 'The website should sell, collect leads, explain a service or attract search traffic. These are different websites, and the choice has to be made before design, not after.',
+  },
+  {
+    title: 'Page structure',
+    text: 'How many pages you need at the start and what this will grow into in a year. A landing page that will have to be rebuilt in six months is cheaper to build as a website right away.',
+  },
+  {
+    title: 'User journey',
+    text: 'Where a visitor comes from, what they see first and how many steps it takes to the target action. Every extra step costs you some leads.',
+  },
+  {
+    title: 'Navigation',
+    text: 'Whether the menu makes it clear what the website offers. If visitors have to guess, they leave for someone who doesn’t make them guess.',
+  },
+  {
+    title: 'Mobile',
+    text: 'More than half of visits come from phones. We test the website on narrow screens during the work, not after launch.',
+  },
+  {
+    title: 'Target actions',
+    text: 'What exactly a visitor should do and how visible it is. A button you only see at the bottom of the page works as if it weren’t there.',
+  },
+  {
+    title: 'Technical implementation',
+    text: 'Loading speed, correct layout, working forms. All of this affects both visitor behavior and search rankings.',
+  },
+  {
+    title: 'Growth after launch',
+    text: 'Whether you can add a section or a service without rebuilding the whole website. Building this in is cheaper than coming back to it later.',
+  },
+  {
+    title: 'SEO',
+    text: 'If organic search matters, keywords and structure are laid down at the start. They can be bolted onto a finished website, but it costs more and works worse.',
+  },
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Our work — Valore Agency',
+  description,
+  url: canonical,
+  hasPart: works.map((w) => ({
+    '@type': 'WebSite',
+    name: w.name,
+    url: w.url,
+    description: w.lead,
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Home', href: '/en/' }, { label: 'Our work' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Our work</h1>
+      <p class="hero__lead">
+        Here we show real launched websites we have worked on: from landing pages and specialist
+        websites to information projects. For each one we explain its goal, structure and key
+        decisions.
+      </p>
+      <div class="hero__actions">
+        <a href="https://t.me/Valoreagency" target="_blank" rel="nofollow noopener" class="btn btn--dark">Discuss your project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <p class="eyebrow">— Completed projects</p>
+      <h2 class="section-title">Websites that are already live</h2>
+
+      <div class="cases">
+        {
+          works.map((w) => (
+            <article class="case">
+              <div class="case__cover" style={`background:${w.accent}`}>
+                <img
+                  class="case__shot"
+                  src={w.shot}
+                  width="640"
+                  height="1120"
+                  loading="lazy"
+                  decoding="async"
+                  alt={`Home page of ${w.domain}`}
+                />
+                <span class="case__badge">{w.domain}</span>
+              </div>
+              <div class="case__body">
+                <span class="case__tag">{w.tag}</span>
+                <h3 class="case__title">{w.heading}</h3>
+                <p class="case__lead">{w.lead}</p>
+                <p class="case__text">{w.text}</p>
+                <p class="case__subtitle">What we built</p>
+                <ul class="case__list">
+                  {w.done.map((d) => <li>{d}</li>)}
+                </ul>
+                <a href={w.url} class="btn btn--ghost case__btn" target="_blank" rel="noopener">
+                  Visit website →
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Different projects need different approaches</h2>
+      <p>
+        Every website has its own goal. For a <strong>landing page</strong>, the key is to focus the
+        visitor on one offer and lead them step by step to the target action.
+      </p>
+      <p>
+        For a <strong>specialist website</strong>, a full structure matters: one that presents
+        several services, builds trust and lets the project grow gradually through new pages and
+        content.
+      </p>
+      <p>
+        For an <strong>information portal</strong>, scalability comes first: handling many
+        categories, publications and constantly updated information.
+      </p>
+      <p>
+        That’s why we don’t use one universal structure for every project. First we define the
+        goal of the future website, then choose the right architecture, functionality and design.
+      </p>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="container">
+      <p class="eyebrow">— What we take into account</p>
+      <h2 class="section-title">A website is more than how it looks</h2>
+      <ul class="reasons">
+        {factors.map((f) => (
+          <li>
+            <strong>{f.title}</strong>
+            <span>{f.text}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="cases__note">
+        None of these questions is visible in a mockup. But they are what decides whether, a year
+        later, a website keeps working and growing — or stays a pretty picture nobody comes back to.
+      </p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">Don’t see your industry?</h2>
+      <p>
+        That’s fine. A gaming portal, a psychologist’s website and a landing page for an
+        educational project are built differently not because they are in different industries,
+        but because they have different goals. The industry barely affects how a website is built —
+        what it needs to do does.
+      </p>
+      <p>
+        So don’t look for a project from your niche in the portfolio. See which of the three goals
+        is closest to yours: collecting leads on a single page, presenting a specialist and their
+        services, or growing a content project through search.
+      </p>
+      <p>
+        Tell us what needs to be done and why — that’s enough for a first conversation. We’ll tell
+        you which format fits and how long it will take, even if you end up working with someone
+        else. How the work goes step by step is described on the
+        <a href="/en/services/web-development/">web development</a> page.
+      </p>
+    </div>
+  </section>
+
+  <ContactCta
+    lang="en"
+    title="Let’s discuss your project"
+    lead="Tell us what kind of website you need and what it should do — we’ll reply and suggest how to build it."
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+</Layout>
+
+<style>
+  .cases {
+    display: grid;
+    gap: 24px;
+  }
+  .case {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+  .case__cover {
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+  /* Скриншот прижат к верхнему краю: у сайтов самое узнаваемое — первый экран,
+     и при обрезке терять надо низ, а не шапку. */
+  .case__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .case__badge {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(11, 18, 21, 0.78);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(4px);
+  }
+  .case__domain {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    word-break: break-word;
+    color: var(--ink);
+  }
+  .case__body {
+    min-width: 0;
+    padding: 28px;
+  }
+  .case__tag {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-60);
+    margin-bottom: 10px;
+  }
+  .case__title {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .case__lead {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .case__text {
+    font-size: 15px;
+    color: var(--ink-60);
+    margin-bottom: 20px;
+  }
+  .case__subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-60);
+    margin-bottom: 10px;
+  }
+  .case__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .case__list li {
+    font-size: 13px;
+    color: var(--ink-60);
+    background: var(--gray-soft);
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .case__btn {
+    display: inline-block;
+  }
+  .cases__note {
+    max-width: 720px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--ink-60);
+  }
+  .reasons {
+    max-width: 720px;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+  .reasons li strong {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .reasons li span {
+    display: block;
+    color: var(--ink-60);
+  }
+  .reasons li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px 16px 44px;
+    font-size: 15px;
+    color: var(--ink-60);
+    position: relative;
+  }
+  .reasons li::before {
+    content: '✓';
+    position: absolute;
+    left: 18px;
+    color: var(--lime);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  @media (max-width: 860px) {
+    .case {
+      grid-template-columns: 1fr;
+    }
+    .case__cover {
+      aspect-ratio: 16 / 10;
+    }
+    .case__body {
+      padding: 24px;
+    }
+  }
+</style>

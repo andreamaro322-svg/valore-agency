@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const title = 'Contact Valore Agency — Telegram and VK';
+const description =
+  'Get in touch with Valore Agency the way you prefer: Telegram or VK. We reply within one business day.';
+const canonical = 'https://valoreagency.net/en/contact/';
+
+const details = [
+  { icon: '🕒', title: 'Working hours', text: 'Mon–Fri, 9:00–19:00 Moscow time (UTC+3). We accept requests 24/7.' },
+  { icon: '⚡', title: 'Response time', text: 'We reply to requests within one business day.' },
+  { icon: '📍', title: 'How we work', text: 'We work remotely with clients in any country.' },
+];
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: title,
+  description,
+  url: canonical,
+  about: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={[{ label: 'Home', href: '/en/' }, { label: 'Contact' }]} />
+
+  <section class="hero hero--center">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Get in touch the way you prefer</h1>
+      <p class="hero__lead">
+        Tell us about your task — we’ll reply, ask a couple of clarifying questions and suggest a
+        solution with a rough estimate of price and timeline.
+      </p>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="container">
+      <div class="services">
+        {
+          details.map((d) => (
+            <div class="service" style="background:var(--gray-soft)">
+              <span class="service__icon" aria-hidden="true">{d.icon}</span>
+              <h3 class="service__title">{d.title}</h3>
+              <p class="service__text">{d.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    lang="en"
+    title="How to reach us"
+    lead="Choose the channel that suits you best — we’re available on each of them."
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+</Layout>

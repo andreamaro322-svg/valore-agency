@@ -1,0 +1,223 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+import { prices, usd } from '../../../data/prices';
+
+const title = `SEO and GEO Services — from ${usd('seoGeo')}/mo | Valore Agency`;
+const description = `We get websites to the top of Google (SEO) and into AI answers from ChatGPT and Gemini (GEO). What the service includes, from ${usd('seoGeo')} per month.`;
+const canonical = 'https://valoreagency.net/en/services/seo-geo/';
+
+const seoIncludes = [
+  { icon: '🔎', title: 'Keyword research', text: 'We find the search queries your target audience uses to look for you.' },
+  { icon: '⚙️', title: 'Technical optimization', text: 'Loading speed, indexing, sitemap, correct structured data.' },
+  { icon: '📝', title: 'Content optimization', text: 'We improve texts, headings and meta tags for your target queries.' },
+  { icon: '🔗', title: 'Internal linking', text: 'We build a link structure between pages that boosts rankings.' },
+];
+
+const geoIncludes = [
+  { icon: '🤖', title: 'Structuring for AI', text: 'We shape content as direct answers that ChatGPT and Gemini understand.' },
+  { icon: '🧩', title: 'Schema.org markup', text: 'FAQPage, Organization, Service — data that AI models read.' },
+  { icon: '📄', title: 'llms.txt and structured data', text: 'We prepare your website for AI crawlers under the new GEO standards.' },
+  { icon: '📊', title: 'AI mention monitoring', text: 'We check whether AI assistants recommend your company for relevant queries.' },
+];
+
+const pricing = [
+  {
+    name: 'SEO + GEO',
+    price: `from ${usd('seoGeo')} / mo`,
+    text: 'End-to-end promotion of your website in classic search and in AI assistants.',
+    features: [
+      'Keyword research and promotion strategy',
+      'Technical and SEO optimization',
+      'Content optimization for search queries and AI',
+      'Schema.org markup and llms.txt',
+      'Monthly report on rankings and AI visibility',
+    ],
+  },
+];
+
+const faq = [
+  {
+    q: 'How much do SEO and GEO cost?',
+    a: `Promotion starts at ${usd('seoGeo')} per month. The final price depends on how competitive your niche is, your target region and the amount of work the website needs.`,
+  },
+  {
+    q: 'What is GEO and how is it different from SEO?',
+    a: 'SEO gets your website to the top of regular Google search results. GEO (Generative Engine Optimization) makes AI assistants such as ChatGPT and Gemini find, understand and recommend you. The methods differ but complement each other: quality content and structured data matter equally for search and for AI.',
+  },
+  {
+    q: 'What does the monthly service include?',
+    a: 'Keyword research and updates, technical and SEO optimization, content improvements, structured data, preparing the website for GEO (llms.txt, structured data) and a monthly report on rankings and AI visibility.',
+  },
+  {
+    q: 'When will I see the first results?',
+    a: 'First changes in indexing and minor rankings usually show in 4–6 weeks; steady traffic growth comes in 3–4 months. Timelines depend on the age of the website and the competition in your niche.',
+  },
+  {
+    q: 'Do I need link building together with SEO?',
+    a: 'For competitive niches, yes — it speeds up ranking growth by increasing domain authority. Link building can be ordered separately.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'SEO and GEO',
+  name: 'SEO and GEO website promotion',
+  provider: { '@type': 'Organization', name: 'Valore Agency', url: 'https://valoreagency.net/' },
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: String(prices.seoGeo.usd),
+    priceCurrency: 'USD',
+    description: 'Monthly SEO and GEO website promotion',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/en/' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'SEO / GEO' },
+    ]}
+  />
+
+  <section class="hero">
+    <div class="hero__blob hero__blob--lime"></div>
+    <div class="hero__blob hero__blob--pink"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow">Service — SEO and GEO</p>
+      <h1>Top of Google plus recommendations from AI assistants</h1>
+      <p class="hero__lead">
+        We promote your website in classic search and make it visible to ChatGPT and Gemini —
+        end to end, with monthly reporting.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--dark">Discuss promotion</a>
+        <a href="#pricing" class="btn btn--ghost">See the price</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong>from {usd('seoGeo')}</strong>per month</div>
+        <div><strong>SEO + GEO</strong>two channels in one service</div>
+        <div><strong>Report</strong>every month</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="container">
+      <h2 class="section-title">SEO and GEO — two channels, one team</h2>
+      <p>
+        <strong>SEO</strong> is classic search engine promotion: the better a website answers a
+        user’s query, technically and in content, the higher it ranks in Google.
+        <strong>GEO (Generative Engine Optimization)</strong> is a new field: promotion in the
+        answers of AI assistants. More and more people, instead of searching, ask ChatGPT or Gemini
+        “who builds websites” or “where can I get a logo designed” — and get an answer that names
+        specific companies. Our job is to make sure that answer mentions you.
+      </p>
+      <p>
+        One team handles both: we research keywords, improve the technical side of the website,
+        optimize content for user queries and, at the same time, structure it so AI models can
+        easily extract facts — prices, services, answers to common questions. We add schema.org
+        markup and an llms.txt file that tell AI crawlers directly what your website is about.
+      </p>
+    </div>
+  </section>
+
+  <section id="whats-included">
+    <div class="container">
+      <p class="eyebrow">— What’s included: SEO</p>
+      <h2 class="section-title">Classic search engine promotion</h2>
+      <div class="services services--2col">
+        {
+          seoIncludes.map((i) => (
+            <div class="service" style="background:var(--lime-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="geo">
+    <div class="container">
+      <p class="eyebrow">— What’s included: GEO</p>
+      <h2 class="section-title">Promotion in AI assistants</h2>
+      <div class="services services--2col">
+        {
+          geoIncludes.map((i) => (
+            <div class="service" style="background:var(--pink-soft)">
+              <span class="service__icon" aria-hidden="true">{i.icon}</span>
+              <h3 class="service__title">{i.title}</h3>
+              <p class="service__text">{i.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <p class="eyebrow">— Price</p>
+      <h2 class="section-title">SEO and GEO pricing</h2>
+      <div class="pricing pricing--2col" style="max-width:560px">
+        {
+          pricing.map((p) => (
+            <div class="price-card price-card--accent">
+              <h3 class="price-card__name">{p.name}</h3>
+              <div class="price-card__price">{p.price}</div>
+              <p class="price-card__text">{p.text}</p>
+              <ul class="price-card__list">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              <a href="#contact" class="btn btn--ghost price-card__btn">Discuss a project</a>
+            </div>
+          ))
+        }
+      </div>
+      <p class="pricing__note">
+        The final price depends on how competitive your niche is, your region and the current
+        state of the website. We calculate it individually after a free review.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <p class="eyebrow">— Questions and answers</p>
+      <h2 class="section-title">SEO and GEO FAQ</h2>
+      <div class="faq">
+        {
+          faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactCta lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

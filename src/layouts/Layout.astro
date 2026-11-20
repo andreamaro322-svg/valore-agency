@@ -1,13 +1,35 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { SITE, alternates, langOf, ui } from '../i18n';
+
+// Язык страницы определяется по адресу: всё под /en/ — английская версия.
+const lang = langOf(Astro.url.pathname);
+const t = ui[lang];
+
+const defaults = {
+  ru: {
+    title: 'Создание сайтов, SEO и GEO-продвижение — Valore Agency',
+    description:
+      'Digital-агентство полного цикла: создание сайтов под ключ, SEO и GEO-продвижение, аудит, разработка логотипов, поддержка сайтов и линкбилдинг. Сделаем сайт заметным в поиске и в нейросетях.',
+  },
+  en: {
+    title: 'Web Development, SEO and GEO — Valore Agency',
+    description:
+      'Full-cycle digital agency: turnkey websites, SEO and GEO (visibility in AI answers), website audits, logo design, website support and link building.',
+  },
+}[lang];
 
 const {
-  title = 'Создание сайтов, SEO и GEO-продвижение — Valore Agency',
-  description = 'Digital-агентство полного цикла: создание сайтов под ключ, SEO и GEO-продвижение, аудит, разработка логотипов, поддержка сайтов и линкбилдинг. Сделаем сайт заметным в поиске и в нейросетях.',
-  canonical = 'https://valoreagency.net/',
+  title = defaults.title,
+  description = defaults.description,
+  canonical = `${SITE}${t.home}`,
   ogImage = 'https://valoreagency.net/og-image.jpg',
 } = Astro.props;
+
+// hreflang: пара страницы на другом языке. x-default ведёт на английскую
+// версию — её Google покажет тем, чей язык не русский и не английский.
+const alt = alternates(Astro.url.pathname);
 
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -19,7 +41,7 @@ const orgSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    availableLanguage: ['Russian'],
+    availableLanguage: ['Russian', 'English'],
   },
   sameAs: [
     'https://t.me/Valoreagency',
@@ -29,7 +51,7 @@ const orgSchema = {
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,6 +60,15 @@ const orgSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      alt && (
+        <>
+          <link rel="alternate" hreflang="ru" href={`${SITE}${alt.ru}`} />
+          <link rel="alternate" hreflang="en" href={`${SITE}${alt.en}`} />
+          <link rel="alternate" hreflang="x-default" href={`${SITE}${alt.en}`} />
+        </>
+      )
+    }
 
     <!-- Иконки. SVG для современных браузеров, ICO с 16/32/48 для старых
          и для тех мест, где запрашивают именно /favicon.ico. -->
@@ -51,7 +82,8 @@ const orgSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={lang === 'ru' ? 'en_US' : 'ru_RU'} />
     <meta property="og:site_name" content="Valore Agency" />
 
     <!-- Twitter -->
@@ -71,11 +103,11 @@ const orgSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   </head>
   <body>
-    <Header />
+    <Header lang={lang} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
 
     <style is:global>
       :root {

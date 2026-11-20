@@ -1,4 +1,6 @@
 ---
+import { langOf, ui } from '../i18n';
+
 export interface Crumb {
   label: string;
   href?: string;
@@ -7,6 +9,7 @@ export interface Props {
   items: Crumb[];
 }
 const { items } = Astro.props as Props;
+const t = ui[langOf(Astro.url.pathname)];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -20,7 +23,7 @@ const schema = {
 };
 ---
 
-<nav class="breadcrumb container" aria-label="Хлебные крошки">
+<nav class="breadcrumb container" aria-label={t.breadcrumbLabel}>
   {
     items.map((item, i) => (
       <span class="breadcrumb__item">
