@@ -1,6 +1,6 @@
 # Страница логотипов удалена — услуга осталась, отдельной посадочной нет.
-/uslugi/razrabotka-logotipov      /uslugi/sozdanie-sajtov   301
-/uslugi/razrabotka-logotipov/*    /uslugi/sozdanie-sajtov   301
+/uslugi/razrabotka-logotipov      /uslugi/sozdanie-sajtov/   301
+/uslugi/razrabotka-logotipov/*    /uslugi/sozdanie-sajtov/   301
 
 # Технический домен Netlify не должен конкурировать с основным в поиске.
 https://valore-agency.netlify.app/*  https://valoreagency.net/:splat  301!
